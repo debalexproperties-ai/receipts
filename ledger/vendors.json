@@ -8,6 +8,7 @@
     "backfill_window": "2025-09-10 to 2026-08-05 (oldest ~150 of ~241 threads under the label; older history exists in Gmail but was not walked)",
     "last_run": "2026-08-05",
     "last_message_date_processed": "2026-08-05T18:17:32Z",
+    "last_run_note": "2026-08-05 weekly run: label:Receipts newer_than:8d returned 5 threads, all already present in the ledger (same message ids as prior run) - zero new rows appended.",
     "search_query": "label:Receipts newer_than:8d",
     "search_query_note": "Weekly run uses a fixed rolling 8-day window (one day of overlap past the 7-day cadence) rather than a moving cursor, so a slightly-late email never falls in a gap. Overlap is made safe by deduping on Gmail message id against every message_id already present in this file - see RUNBOOK.md.",
     "paused_projects_file": "ledger/paused_projects.json",
