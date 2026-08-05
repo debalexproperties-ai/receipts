@@ -16,9 +16,12 @@ git checkout claude/gmail-receipts-ledger-s235of || git checkout -b claude/gmail
 git pull
 ```
 
-If the branch has since been merged into the default branch, treat this as
-a fresh cycle: branch again from the default branch with the same name and
-keep going.
+If the branch has since been merged into the default branch, **or doesn't
+exist on origin yet (e.g. this is the very first weekly run)**, treat this
+as a fresh cycle: branch again from the default branch with the same name
+(`git checkout -b claude/gmail-receipts-ledger-s235of origin/main`) and keep
+going - there's nothing to `git pull` in that case since the branch has no
+upstream history yet.
 
 Read `ledger/vendors.json` (the ledger) and `ledger/paused_projects.json`
 (the paused list) before doing anything else.
