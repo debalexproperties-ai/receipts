@@ -7,7 +7,7 @@
     "backfill_completed_at": "2026-08-05",
     "backfill_window": "2025-09-10 to 2026-08-05 (oldest ~150 of ~241 threads under the label; older history exists in Gmail but was not walked)",
     "last_run": "2026-08-05",
-    "last_message_date_processed": "2026-08-05T12:50:08Z",
+    "last_message_date_processed": "2026-08-05T18:17:32Z",
     "search_query": "label:Receipts newer_than:8d",
     "search_query_note": "Weekly run uses a fixed rolling 8-day window (one day of overlap past the 7-day cadence) rather than a moving cursor, so a slightly-late email never falls in a gap. Overlap is made safe by deduping on Gmail message id against every message_id already present in this file - see RUNBOOK.md.",
     "paused_projects_file": "ledger/paused_projects.json",
@@ -85,7 +85,8 @@
         {"date": "2026-04-06", "amount": null, "type": "charge_success", "message_id": "19d6437004715bbf", "note": "amount not confirmed for this instance"},
         {"date": "2026-05-06", "amount": null, "type": "charge_success", "message_id": "19dfecf922584bb0", "note": "amount not confirmed for this instance"},
         {"date": "2026-06-04", "amount": null, "type": "charge_success", "message_id": "19e93db12d0ff532", "note": "amount not confirmed for this instance"},
-        {"date": "2026-07-07", "amount": 49.98, "type": "charge_success", "message_id": "19f3def2d20bc464", "note": "amount confirmed by reading full receipt body (line total)"}
+        {"date": "2026-07-07", "amount": 49.98, "type": "charge_success", "message_id": "19f3def2d20bc464", "note": "amount confirmed by reading full receipt body (line total)"},
+        {"date": "2026-08-05", "amount": 49.98, "type": "charge_success", "message_id": "19fd3251fd5cc79e", "note": "Receipt #2513-6947, billing period Jul 1-Jul 31 2026. Same $49.98 as prior month - no price change."}
       ],
       "events": [
         {"date": "2025-12-05", "type": "refund", "message_id": "19aecb221f5761a5", "note": "\"Your refund from Breezeway #3000-9502\" - amount not confirmed"}
@@ -214,7 +215,8 @@
         {"date": "2026-04-21", "amount": null, "type": "invoice", "message_id": "19db1d2b2c4bb01e"},
         {"date": "2026-05-21", "amount": null, "type": "invoice", "message_id": "19e4c357ecf4e241"},
         {"date": "2026-06-29", "amount": null, "type": "invoice", "message_id": "19f1517e731fc2e7"},
-        {"date": "2026-07-14", "amount": null, "type": "invoice", "message_id": "19f62455821139a3", "note": "attachment name: Invoice_331502.pdf, unread"}
+        {"date": "2026-07-14", "amount": null, "type": "invoice", "message_id": "19f62455821139a3", "note": "attachment name: Invoice_331502.pdf, unread"},
+        {"date": "2026-08-03", "amount": null, "type": "inspection_report", "message_id": "19fc82c197fcc81e", "note": "\"Inspection Report For Your Service\" at 1030 Shannondale Rd - informational, no charge. No accompanying invoice email in this run's window."}
       ],
       "events": [
         {"date": "recurring", "type": "duplicate_send", "note": "The \"Inspection Report\" email (no charge) is frequently sent 2-4 times within minutes/hours of itself for the same visit (e.g. 2026-02-20, 2026-06-24, 2025-09-22). This looks like a sender-side glitch, not a duplicate subscription/charge - flagged so future runs don't mistake it for double billing."}
