@@ -1,0 +1,4 @@
+{
+  "$note": "List vendor ids or plain vendor names that are currently paused (a property sold, a tool cancelled but not yet fully off autopay, a subscription meant to be on hold, etc). Any new charge whose vendor matches something here gets flagged as 'paused_project_charge' by the weekly run. Match by the vendor 'id' in ledger/vendors.json when possible, or a plain name/sender-domain fragment if the vendor isn't in the ledger yet.",
+  "paused": []
+}
