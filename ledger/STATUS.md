@@ -1,24 +1,39 @@
 # Receipts Ledger — Weekly Digest
 
-_Last updated: 2026-08-05_
+_Last updated: 2026-08-10_
 
 ## New charges this run
-Searched `label:Receipts newer_than:8d` (5 threads found; **all 5 were
-already in the ledger** from the prior run - same Gmail message ids,
-deduped and skipped). No new rows appended this run.
+Searched `label:Receipts newer_than:8d` (8 threads found). 5 were already in
+the ledger from prior runs (deduped, skipped). **3 new rows appended:**
+
+- **Potomac Edison** (new vendor) — electric statements for both properties,
+  both enrolled in AutoPay:
+  - 1030 Shannondale Rd (account ...6615): **$158.74**, due 2026-08-31
+  - 704 Valley View Dr (account ...8822): **$202.36**, due 2026-08-27
+- **Booking.com** — new host commission invoice for Stone Cabin
+  (2026-08-06, amount unknown - only viewable via Extranet, per known
+  limitation).
 
 ## Current confirmed monthly recurring total: **$230.98/mo**
-PriceLabs $39.20 + Canva Pro $15.90 + Breezeway $49.98 + Xfinity ...4222
-$55.00 + Xfinity ...6337 $70.90. Unchanged from last run - no price moves
-this week. Excludes QR Code Generator Pro (cycle unconfirmed), Apple Valley
-Waste (quarterly), and Pool Pals / Petti Pest Control / Booking.com
-(irregular, amount unknown).
+Unchanged from last week: PriceLabs $39.20 + Canva Pro $15.90 + Breezeway
+$49.98 + Xfinity ...4222 $55.00 + Xfinity ...6337 $70.90. Excludes QR Code
+Generator Pro (cycle unconfirmed), Apple Valley Waste (quarterly), Pool
+Pals/Petti Pest Control/Booking.com (irregular, amount unknown), and the
+two new Potomac Edison accounts below (only one data point each so far).
 
 ## 🚩 Flags
 
-**No flags this week** - no new vendors, no price changes, no duplicate
-subscriptions or charges, and no charges tied to a paused project (the
-paused list is still empty - see `ledger/paused_projects.json`).
+**New vendor: Potomac Edison (electric, both properties).** First-ever
+appearance under the Receipts label - two statements, one per property,
+$158.74 (1030 Shannondale) + $202.36 (704 Valley View) = **$361.10/mo**
+combined. If this is a real recurring AutoPay bill (which it looks like),
+confirmed monthly burn will roughly **jump from $230.98 to ~$592.08** once
+a second month confirms the pattern. Worth a quick look to confirm these
+are legitimate/expected and not a new enrollment you didn't intend.
+
+No other flags this week - no price changes, no duplicate subscriptions or
+charges, and no charges tied to a paused project (paused list is still
+empty - see `ledger/paused_projects.json`).
 
 Carried over from prior weeks, still worth a look if not already resolved:
 - **QR Code Generator Pro** ($119.88, 2026-08-05) - new vendor flagged
@@ -42,7 +57,9 @@ Carried over from prior weeks, still worth a look if not already resolved:
 | QR Code Generator Pro | Software subscription | Unknown | $119.88 · 2026-08-05 | new, unconfirmed |
 | Pool Pals, LLC | Service | Irregular | amount unknown · 2026-07-06 (last reminder) | active, frequently overdue |
 | Petti Pest Control | Service | Irregular | amount unknown · 2026-08-03 (inspection report; last invoice 2026-07-14) | active |
-| Booking.com (host invoices) | Platform commission | Irregular | amount unknown · 2026-07-06 (last invoice) | active, 2 listings |
+| Booking.com (host invoices) | Platform commission | Irregular | amount unknown · 2026-08-06 (last invoice) | active, 2 listings |
+| Potomac Edison (...6615, 1030 Shannondale) | Utility | Monthly | $158.74 · 2026-08-07 (statement) | **new, unconfirmed** |
+| Potomac Edison (...8822, 704 Valley View) | Utility | Monthly | $202.36 · 2026-08-06 (statement) | **new, unconfirmed** |
 
 Full history and machine-readable detail: `ledger/vendors.json`.
 Paused-project list: `ledger/paused_projects.json`.
