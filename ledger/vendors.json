@@ -6,15 +6,15 @@
     "label_id": "Label_9159949346240706748",
     "backfill_completed_at": "2026-08-05",
     "backfill_window": "2025-09-10 to 2026-08-05 (oldest ~150 of ~241 threads under the label; older history exists in Gmail but was not walked)",
-    "last_run": "2026-08-10",
-    "last_message_date_processed": "2026-08-07T18:26:58Z",
-    "last_run_note": "2026-08-10 weekly run: label:Receipts newer_than:8d returned 8 threads. 5 were already in the ledger (same message ids as prior run, deduped/skipped). 3 new rows appended: two Potomac Edison electric statements (new vendor, one per property - 1030 Shannondale Rd $158.74 and 704 Valley View Dr $202.36) and one new Booking.com host invoice (Stone Cabin, amount unknown per known limitation).",
+    "last_run": "2026-08-17",
+    "last_message_date_processed": "2026-08-15T11:39:15Z",
+    "last_run_note": "2026-08-17 weekly run: label:Receipts newer_than:8d returned 2 threads, neither previously seen. 2 new rows appended, both existing Xfinity accounts, no price changes: account ...6337 confirmed payment $70.90 (2026-08-15), and account ...4222 bill-available notice $55.00 for AutoPay scheduled 2026-09-03 (not yet a confirmed completed charge, logged as type 'statement'). No new vendors, no flags.",
     "search_query": "label:Receipts newer_than:8d",
     "search_query_note": "Weekly run uses a fixed rolling 8-day window (one day of overlap past the 7-day cadence) rather than a moving cursor, so a slightly-late email never falls in a gap. Overlap is made safe by deduping on Gmail message id against every message_id already present in this file - see RUNBOOK.md.",
     "paused_projects_file": "ledger/paused_projects.json",
     "confirmed_monthly_recurring_total": {
       "amount": 230.98,
-      "as_of": "2026-08-10",
+      "as_of": "2026-08-17",
       "basis": "Sum of the latest charge for every vendor with billing_cycle containing 'monthly' and status 'active': PriceLabs 39.20 + Canva Pro 15.90 + Breezeway 49.98 + Xfinity ...4222 55.00 + Xfinity ...6337 70.90. Excludes QR Code Generator Pro (cycle unconfirmed), Apple Valley Waste (quarterly), Pool Pals/Petti Pest Control/Booking.com (irregular, amount unknown), and the two new Potomac Edison electric accounts (status 'new', only one statement each so far - $158.74 + $202.36 = $361.10/mo once confirmed, which would raise the total to ~$592.08/mo)."
     }
   },
@@ -108,7 +108,8 @@
         {"date": "2026-04-04", "amount": 55.00, "type": "charge_success", "message_id": "19d5867257265971"},
         {"date": "2026-06-04", "amount": 55.00, "type": "charge_success", "message_id": "19e92bdb4d36dcda"},
         {"date": "2026-07-04", "amount": 55.00, "type": "charge_success", "message_id": "19f2d1d8907752d1"},
-        {"date": "2026-08-04", "amount": 55.00, "type": "charge_success", "message_id": "19fcd0e62f518cba"}
+        {"date": "2026-08-04", "amount": 55.00, "type": "charge_success", "message_id": "19fcd0e62f518cba"},
+        {"date": "2026-08-12", "amount": 55.00, "type": "statement", "message_id": "19ff6efbd44e8b66", "note": "\"Your bill is available to view online\" - AutoPay scheduled for 2026-09-03, not yet a confirmed completed charge. Same $55.00 as last confirmed payment - no price change."}
       ],
       "events": []
     },
@@ -126,7 +127,8 @@
         {"date": "2026-03-15", "amount": 70.90, "type": "charge_success", "message_id": "19cf12febbed5ad2"},
         {"date": "2026-05-15", "amount": 70.90, "type": "charge_success", "message_id": "19e2b3db051d86e6"},
         {"date": "2026-06-15", "amount": 70.90, "type": "charge_success", "message_id": "19ecbc6055944dba"},
-        {"date": "2026-07-15", "amount": 70.90, "type": "charge_success", "message_id": "19f6599908ab1be3"}
+        {"date": "2026-07-15", "amount": 70.90, "type": "charge_success", "message_id": "19f6599908ab1be3"},
+        {"date": "2026-08-15", "amount": 70.90, "type": "charge_success", "message_id": "1a005381f514ffb5"}
       ],
       "events": [
         {"date": "2026-05-19", "type": "delayed_confirmation", "message_id": "19e3e74bc96e41ff", "note": "\"Due to a system issue, we weren't able to send our usual confirmation email\" - almost certainly the same May payment as the 05-15 entry, not a second charge. Watch for this pattern so it isn't miscounted as a duplicate."}
