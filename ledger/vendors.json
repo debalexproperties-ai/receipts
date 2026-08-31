@@ -6,16 +6,16 @@
     "label_id": "Label_9159949346240706748",
     "backfill_completed_at": "2026-08-05",
     "backfill_window": "2025-09-10 to 2026-08-05 (oldest ~150 of ~241 threads under the label; older history exists in Gmail but was not walked)",
-    "last_run": "2026-08-24",
-    "last_message_date_processed": "2026-08-22T22:52:49Z",
-    "last_run_note": "2026-08-24 weekly run: label:Receipts newer_than:8d returned 7 threads. 1 (Booking.com \"booking confirmed\" for CITYLUXE Suites & Rooms, Athens) is Deb's personal guest travel and out of scope per RUNBOOK - excluded. 6 rows appended across 3 existing vendors, no new vendors, no price changes: Xfinity ...6337 bill-available notice $70.90 for AutoPay scheduled 2026-09-14 (same as last confirmed payment); Pool Pals invoice #1511 (2026-08-18, amount in PDF, not extracted) plus two overdue reminders for the same invoice (2026-08-19, 2026-08-20) - reply thread confirms both hot tubs were serviced, consistent with the known slow-pay pattern; Petti Pest Control invoice #341342 (2026-08-21, amount in PDF, property not stated in email body) and a separate inspection report for 704 Valley View Rd (2026-08-21, informational, no charge). No flags.",
+    "last_run": "2026-08-31",
+    "last_message_date_processed": "2026-08-28T20:05:11Z",
+    "last_run_note": "2026-08-31 weekly run: label:Receipts newer_than:8d returned 5 threads, all new (deduped by message id). 5 rows appended: Canva Pro $15.90 (2026-08-28, same as prior months, no price change); one new vendor - Anthropic/Claude Pro $21.40 (2026-08-26, receipt #2927-5998-6603, billing period Aug 26-Sep 26) flagged new_vendor; and three more Pool Pals overdue reminders for invoice #1511 (2026-08-26, 2026-08-27, 2026-08-28), bringing that single invoice to 5 reminder emails since 2026-08-18 - noted as an intensifying slow-pay pattern, not a duplicate charge. No price changes, no duplicate subscriptions, no paused-project charges (paused list still empty).",
     "search_query": "label:Receipts newer_than:8d",
     "search_query_note": "Weekly run uses a fixed rolling 8-day window (one day of overlap past the 7-day cadence) rather than a moving cursor, so a slightly-late email never falls in a gap. Overlap is made safe by deduping on Gmail message id against every message_id already present in this file - see RUNBOOK.md.",
     "paused_projects_file": "ledger/paused_projects.json",
     "confirmed_monthly_recurring_total": {
       "amount": 230.98,
-      "as_of": "2026-08-24",
-      "basis": "Sum of the latest charge for every vendor with billing_cycle containing 'monthly' and status 'active': PriceLabs 39.20 + Canva Pro 15.90 + Breezeway 49.98 + Xfinity ...4222 55.00 + Xfinity ...6337 70.90. Excludes QR Code Generator Pro (cycle unconfirmed), Apple Valley Waste (quarterly), Pool Pals/Petti Pest Control/Booking.com (irregular, amount unknown), and the two new Potomac Edison electric accounts (status 'new', only one statement each so far - $158.74 + $202.36 = $361.10/mo once confirmed, which would raise the total to ~$592.08/mo)."
+      "as_of": "2026-08-31",
+      "basis": "Sum of the latest charge for every vendor with billing_cycle containing 'monthly' and status 'active': PriceLabs 39.20 + Canva Pro 15.90 + Breezeway 49.98 + Xfinity ...4222 55.00 + Xfinity ...6337 70.90. Unchanged from last week. Excludes QR Code Generator Pro (cycle unconfirmed), Apple Valley Waste (quarterly), Pool Pals/Petti Pest Control/Booking.com (irregular, amount unknown), the two Potomac Edison electric accounts (status 'new', only one statement each so far - $158.74 + $202.36 = $361.10/mo once confirmed), and Anthropic/Claude Pro (status 'new', only one charge so far - $21.40/mo once confirmed). Once all three pending 'new' vendors confirm a second month at the same price, the total would rise to ~$613.48/mo."
     }
   },
   "vendors": [
@@ -63,7 +63,8 @@
         {"date": "2026-04-28", "amount": 15.90, "type": "charge_success", "message_id": "19dd5a6c01ba3c4a", "note": "amount inferred from stable pattern"},
         {"date": "2026-05-28", "amount": 15.90, "type": "charge_success", "message_id": "19e7021fd506a620", "note": "amount inferred from stable pattern"},
         {"date": "2026-06-28", "amount": 15.90, "type": "charge_success", "message_id": "19f0fd377a082862", "note": "amount inferred from stable pattern"},
-        {"date": "2026-07-28", "amount": 15.90, "type": "charge_success", "message_id": "19faa3ad5e2f4056", "note": "amount confirmed by reading full invoice body (item: Canva Pro)"}
+        {"date": "2026-07-28", "amount": 15.90, "type": "charge_success", "message_id": "19faa3ad5e2f4056", "note": "amount confirmed by reading full invoice body (item: Canva Pro)"},
+        {"date": "2026-08-28", "amount": 15.90, "type": "charge_success", "message_id": "1a049f9f1778697c", "note": "Invoice 04987-68600509. Same $15.90 as prior months - no price change."}
       ],
       "events": []
     },
@@ -198,10 +199,14 @@
         {"date": "2026-07-06", "amount": null, "type": "reminder_overdue", "message_id": "19f379d1c7395e38"},
         {"date": "2026-08-18", "amount": null, "type": "invoice", "message_id": "1a0163b92e21530f", "note": "Invoice #1511 (Invoice_1511_from_Pool_Pals_LLC.pdf). Reply thread confirms both hot tubs were serviced (drain, clean, fill) - Deb double-checked with Pool Pals since she thought only one was done."},
         {"date": "2026-08-19", "amount": null, "type": "reminder_overdue", "message_id": "1a01a4ef05738ce9", "note": "First reminder that invoice #1511 has not been paid."},
-        {"date": "2026-08-20", "amount": null, "type": "reminder_overdue", "message_id": "1a01f68244f4c367", "note": "Second reminder that invoice #1511 has not been paid."}
+        {"date": "2026-08-20", "amount": null, "type": "reminder_overdue", "message_id": "1a01f68244f4c367", "note": "Second reminder that invoice #1511 has not been paid."},
+        {"date": "2026-08-26", "amount": null, "type": "reminder_overdue", "message_id": "1a03ef530ef20195", "note": "Third reminder that invoice #1511 has not been paid."},
+        {"date": "2026-08-27", "amount": null, "type": "reminder_overdue", "message_id": "1a0433ad3426dba1", "note": "Fourth reminder that invoice #1511 has not been paid."},
+        {"date": "2026-08-28", "amount": null, "type": "reminder_overdue", "message_id": "1a0487e27870a9fc", "note": "Fifth reminder that invoice #1511 has not been paid."}
       ],
       "events": [
-        {"date": "recurring", "type": "operational_note", "note": "A large share of these are \"OVERDUE\"/\"URGENT\" reminders rather than fresh invoices - this looks like a slow-pay pattern worth a look regardless of pricing."}
+        {"date": "recurring", "type": "operational_note", "note": "A large share of these are \"OVERDUE\"/\"URGENT\" reminders rather than fresh invoices - this looks like a slow-pay pattern worth a look regardless of pricing."},
+        {"date": "2026-08-31", "type": "operational_note", "note": "Invoice #1511 (2026-08-18) has now drawn 5 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28) with no invoice for a new service in between - the slow-pay pattern is intensifying for this specific invoice. Worth confirming whether it's actually been paid, since Pool Pals may just not be updating their reminder system."}
       ]
     },
     {
@@ -281,6 +286,20 @@
       "first_seen_in_backfill": "2026-08-06",
       "charges": [
         {"date": "2026-08-06", "amount": 202.36, "type": "statement", "message_id": "19fd855bc46e5df5", "flag": "new_vendor", "note": "First-ever appearance of Potomac Edison under this label. Statement for account 11 01 63 8822 4 1, service address 704 Valley View Dr, Harpers Ferry WV. AutoPay due 2026-08-27 - this is the statement/scheduled-debit notice, not yet a confirmed completed charge (no separate payment-confirmation email seen this run)."}
+      ],
+      "events": []
+    },
+    {
+      "id": "anthropic_claude_pro",
+      "display_name": "Anthropic (Claude Pro)",
+      "sender_domains": ["mail.anthropic.com (invoice+statements@mail.anthropic.com)"],
+      "category": "software_subscription",
+      "purpose": "AI assistant subscription (Claude Pro)",
+      "status": "new",
+      "billing_cycle": "monthly, ~26th of the month (period stated as Aug 26-Sep 26, 2026)",
+      "first_seen_in_backfill": "2026-08-26",
+      "charges": [
+        {"date": "2026-08-26", "amount": 21.40, "type": "charge_success", "message_id": "1a03ed6ab8b0c0f4", "flag": "new_vendor", "note": "First-ever appearance of Anthropic under this label. Receipt #2927-5998-6603, Invoice WKY6GQTJ-0004. Claude Pro $20.00 + West Virginia tax (7%) $1.40 = $21.40, paid via Link. Addressed to debalexproperties@gmail.com (no dots) rather than deb.alex.properties@gmail.com - Gmail treats dots in the local part as insignificant, so this is the same mailbox, not a different account; not treated as an anomaly. Only one data point so far - confirm this subscription is intentional and expected to recur."}
       ],
       "events": []
     }
