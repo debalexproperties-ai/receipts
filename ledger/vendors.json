@@ -6,15 +6,15 @@
     "label_id": "Label_9159949346240706748",
     "backfill_completed_at": "2026-08-05",
     "backfill_window": "2025-09-10 to 2026-08-05 (oldest ~150 of ~241 threads under the label; older history exists in Gmail but was not walked)",
-    "last_run": "2026-09-14",
-    "last_message_date_processed": "2026-09-12T23:25:38Z",
-    "last_run_note": "2026-09-14 weekly run: label:Receipts newer_than:8d returned 3 threads (3 messages), all new (deduped by message id). Rows appended across 2 vendors: Xfinity ...4222 $55.00 bill-available statement (2026-09-12, AutoPay scheduled 2026-10-03, no price change), and two more Pool Pals overdue reminders for the still-open invoice #1511 (2026-09-08 at 21 days overdue, 2026-09-09 at 22 days overdue, both confirming the same $498.20 balance - now 10 reminders total since the invoice opened 2026-08-18, with no new invoice in between). No new vendor, no price-change flag, no duplicate subscription/charge, no paused-project charges (paused list still empty). Confirmed monthly recurring total unchanged from last week since no vendor's status/cycle/price changed.",
+    "last_run": "2026-09-21",
+    "last_message_date_processed": "2026-09-16T15:52:07Z",
+    "last_run_note": "2026-09-21 weekly run: label:Receipts newer_than:8d returned 6 threads (6 messages), all new (deduped by message id). Rows appended across 3 vendors: Xfinity ...6337 $70.90 payment confirmation (2026-09-15, completing the AutoPay scheduled from the 08-22 statement, no price change); Apple Valley Waste invoice #0007157561 $251.10 (2026-09-16, account #310718) - a small -1.1% dip from the prior $253.90 invoice, treated as normal variability rather than a price_change flag after two consecutive ~5% increases; Petti Pest Control - one inspection report at 704 Valley View Rd (2026-09-14, no charge) and one invoice #352282 (2026-09-14, amount inside PDF attachment, not extracted); and two more Pool Pals overdue reminders for the still-open invoice #1511 (2026-09-14 at 27 days overdue, 2026-09-16 at 29 days overdue, both confirming the same $498.20 balance - now 12 reminders total since the invoice opened 2026-08-18, spanning over 5 weeks with no new invoice or payment confirmation). No new vendor, no price-change flag, no duplicate subscription/charge, no paused-project charges (paused list still empty). Confirmed monthly recurring total unchanged from last week since no monthly vendor's status/cycle/price changed.",
     "search_query": "label:Receipts newer_than:8d",
     "search_query_note": "Weekly run uses a fixed rolling 8-day window (one day of overlap past the 7-day cadence) rather than a moving cursor, so a slightly-late email never falls in a gap. Overlap is made safe by deduping on Gmail message id against every message_id already present in this file - see RUNBOOK.md.",
     "paused_projects_file": "ledger/paused_projects.json",
     "confirmed_monthly_recurring_total": {
       "amount": 614.68,
-      "as_of": "2026-09-14",
+      "as_of": "2026-09-21",
       "basis": "Sum of the latest charge for every vendor with billing_cycle containing 'monthly' and status 'active': PriceLabs 39.20 + Canva Pro 15.90 + Breezeway 49.98 + Xfinity ...4222 55.00 + Xfinity ...6337 70.90 + Potomac Edison ...6615/1030 Shannondale 189.75 + Potomac Edison ...8822/704 Valley View 193.95. Unchanged from last week - no vendor's status, cycle, or price moved this run. Excludes QR Code Generator Pro (cycle unconfirmed, still one charge) and Anthropic/Claude Pro (status 'new', only one charge so far - $21.40/mo once a second month confirms it), plus Apple Valley Waste (quarterly) and Pool Pals/Petti Pest Control/Booking.com (irregular cadence)."
     }
   },
@@ -120,6 +120,7 @@
     },
     {
       "id": "xfinity_6337",
+
       "display_name": "Xfinity (account ...6337)",
       "sender_domains": ["account.xfinity.com"],
       "category": "utility",
@@ -134,7 +135,8 @@
         {"date": "2026-06-15", "amount": 70.90, "type": "charge_success", "message_id": "19ecbc6055944dba"},
         {"date": "2026-07-15", "amount": 70.90, "type": "charge_success", "message_id": "19f6599908ab1be3"},
         {"date": "2026-08-15", "amount": 70.90, "type": "charge_success", "message_id": "1a005381f514ffb5"},
-        {"date": "2026-08-22", "amount": 70.90, "type": "statement", "message_id": "1a02bad599236c3a", "note": "\"Your bill is available to view online\" - AutoPay scheduled for 2026-09-14, not yet a confirmed completed charge. Same $70.90 as last confirmed payment - no price change."}
+        {"date": "2026-08-22", "amount": 70.90, "type": "statement", "message_id": "1a02bad599236c3a", "note": "\"Your bill is available to view online\" - AutoPay scheduled for 2026-09-14, not yet a confirmed completed charge. Same $70.90 as last confirmed payment - no price change."},
+        {"date": "2026-09-15", "amount": 70.90, "type": "charge_success", "message_id": "1a0a4d62b7b25f3f", "note": "\"Thanks for your payment\" confirmation - AutoPay processed successfully for account ending 6337, completing the payment scheduled from the 2026-08-22 statement. Same $70.90 as prior month - no price change."}
       ],
       "events": [
         {"date": "2026-05-19", "type": "delayed_confirmation", "message_id": "19e3e74bc96e41ff", "note": "\"Due to a system issue, we weren't able to send our usual confirmation email\" - almost certainly the same May payment as the 05-15 entry, not a second charge. Watch for this pattern so it isn't miscounted as a duplicate."}
@@ -152,7 +154,8 @@
       "charges": [
         {"date": "2025-12-02", "amount": 228.58, "type": "invoice", "message_id": "19adcb656151b566"},
         {"date": "2026-03-03", "amount": 241.00, "type": "invoice", "message_id": "19cb1c977dd6fe37", "flag": "price_change", "note": "+$12.42 vs prior invoice (+5.4%)"},
-        {"date": "2026-05-30", "amount": 253.90, "type": "invoice", "message_id": "19e78e908a902eeb", "flag": "price_change", "note": "+$12.90 vs prior invoice (+5.3%) - two increases in a row, worth confirming this is rate-driven and not a metering error"}
+        {"date": "2026-05-30", "amount": 253.90, "type": "invoice", "message_id": "19e78e908a902eeb", "flag": "price_change", "note": "+$12.90 vs prior invoice (+5.3%) - two increases in a row, worth confirming this is rate-driven and not a metering error"},
+        {"date": "2026-09-16", "amount": 251.10, "type": "invoice", "message_id": "1a0aa8b289fa41ae", "note": "Invoice #0007157561, account #310718. -$2.80 vs prior invoice (-1.1%) - a small dip after two consecutive increases, treated as normal variability rather than a price_change flag (well under the ~5% moves flagged previously)."}
       ],
       "events": []
     },
@@ -211,13 +214,16 @@
         {"date": "2026-09-02", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a0621e415e68d10", "note": "Seventh reminder, invoice #1511 now 15 days overdue, balance $498.20."},
         {"date": "2026-09-04", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a06c6ec73a46817", "note": "Eighth reminder, invoice #1511 now 17 days overdue, balance $498.20."},
         {"date": "2026-09-08", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a0817c7f99a1170", "note": "Ninth reminder, invoice #1511 now 21 days overdue, balance $498.20."},
-        {"date": "2026-09-09", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a08639dfef2c9d7", "note": "Tenth reminder, invoice #1511 now 22 days overdue, balance $498.20."}
+        {"date": "2026-09-09", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a08639dfef2c9d7", "note": "Tenth reminder, invoice #1511 now 22 days overdue, balance $498.20."},
+        {"date": "2026-09-14", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a0a06092bbc9605", "note": "Eleventh reminder, invoice #1511 now 27 days overdue, balance $498.20."},
+        {"date": "2026-09-16", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a0aaeb14ba514d0", "note": "Twelfth reminder, invoice #1511 now 29 days overdue, balance $498.20."}
       ],
       "events": [
         {"date": "recurring", "type": "operational_note", "note": "A large share of these are \"OVERDUE\"/\"URGENT\" reminders rather than fresh invoices - this looks like a slow-pay pattern worth a look regardless of pricing."},
         {"date": "2026-08-31", "type": "operational_note", "note": "Invoice #1511 (2026-08-18) has now drawn 5 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28) with no invoice for a new service in between - the slow-pay pattern is intensifying for this specific invoice. Worth confirming whether it's actually been paid, since Pool Pals may just not be updating their reminder system."},
         {"date": "2026-09-07", "type": "operational_note", "note": "Invoice #1511 ($498.20, opened 2026-08-18) has now drawn 8 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28, 09-01, 09-02, 09-04) spanning 3+ weeks with no new invoice in between. The amount is now confirmed ($498.20) from the reminder text itself. Given the length and consistency of the streak, this is worth confirming directly with Pool Pals rather than assuming it's still unpaid."},
-        {"date": "2026-09-14", "type": "operational_note", "note": "Invoice #1511 ($498.20, opened 2026-08-18) has now drawn 10 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28, 09-01, 09-02, 09-04, 09-08, 09-09) spanning nearly 4 weeks with no new invoice in between - still no confirmation this has been paid. Strongly recommend contacting Pool Pals directly rather than waiting for another reminder."}
+        {"date": "2026-09-14", "type": "operational_note", "note": "Invoice #1511 ($498.20, opened 2026-08-18) has now drawn 10 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28, 09-01, 09-02, 09-04, 09-08, 09-09) spanning nearly 4 weeks with no new invoice in between - still no confirmation this has been paid. Strongly recommend contacting Pool Pals directly rather than waiting for another reminder."},
+        {"date": "2026-09-21", "type": "operational_note", "note": "Invoice #1511 ($498.20, opened 2026-08-18) has now drawn 12 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28, 09-01, 09-02, 09-04, 09-08, 09-09, 09-14, 09-16) spanning over 5 weeks with no new invoice and no payment confirmation in between. This is well past the point of being a reminder-system quirk - recommend contacting Pool Pals directly this week to resolve."}
       ]
     },
     {
@@ -243,7 +249,9 @@
         {"date": "2026-08-21", "amount": null, "type": "inspection_report", "message_id": "1a0252c04ccdd67e", "note": "\"Inspection Report For Your Service\" at 704 Valley View Rd - informational, no charge (attachment named \"Service Inspection Report_Invoice.pdf\" despite the word \"Invoice\" in the filename)."},
         {"date": "2026-08-21", "amount": null, "type": "invoice", "message_id": "1a025e30be7d984a", "note": "Invoice #341342 (Invoice_341342.pdf) - amount inside PDF attachment, not extracted."},
         {"date": "2026-08-31", "amount": null, "type": "inspection_report", "message_id": "1a057d1a64c6e81b", "note": "\"Inspection Report For Your Service\" at 1030 Shannondale Rd - informational, no charge."},
-        {"date": "2026-09-03", "amount": null, "type": "inspection_report", "message_id": "1a068e680a275982", "note": "\"Inspection Report For Your Service\" at 1030 Shannondale Rd - informational, no charge. Second inspection-report email for the same property within one week (08-31 and 09-03), no invoice in between - possibly the known duplicate-send glitch stretched over days rather than minutes, but not confirmed either way."}
+        {"date": "2026-09-03", "amount": null, "type": "inspection_report", "message_id": "1a068e680a275982", "note": "\"Inspection Report For Your Service\" at 1030 Shannondale Rd - informational, no charge. Second inspection-report email for the same property within one week (08-31 and 09-03), no invoice in between - possibly the known duplicate-send glitch stretched over days rather than minutes, but not confirmed either way."},
+        {"date": "2026-09-14", "amount": null, "type": "inspection_report", "message_id": "1a0a058950af772b", "note": "\"Inspection Report For Your Service\" at 704 Valley View Rd - informational, no charge."},
+        {"date": "2026-09-14", "amount": null, "type": "invoice", "message_id": "1a0a1906306abf66", "note": "Invoice #352282 (Invoice_352282.pdf) - amount inside PDF attachment, not extracted."}
       ],
       "events": [
         {"date": "recurring", "type": "duplicate_send", "note": "The \"Inspection Report\" email (no charge) is frequently sent 2-4 times within minutes/hours of itself for the same visit (e.g. 2026-02-20, 2026-06-24, 2025-09-22). This looks like a sender-side glitch, not a duplicate subscription/charge - flagged so future runs don't mistake it for double billing."}
