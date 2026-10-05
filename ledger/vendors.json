@@ -6,15 +6,15 @@
     "label_id": "Label_9159949346240706748",
     "backfill_completed_at": "2026-08-05",
     "backfill_window": "2025-09-10 to 2026-08-05 (oldest ~150 of ~241 threads under the label; older history exists in Gmail but was not walked)",
-    "last_run": "2026-09-28",
-    "last_message_date_processed": "2026-09-26T16:12:35Z",
-    "last_run_note": "2026-09-28 weekly run: label:Receipts newer_than:8d returned 4 threads (4 messages), all new (deduped by message id). Rows appended across 4 vendors: Anthropic (Claude Pro) $21.40 receipt (2026-09-26, Receipt #2346-9438-4882) - same price as the first charge, second month confirms the recurring pattern so status promoted from 'new' to 'active' and it now enters the confirmed monthly recurring total; Xfinity ...6337 $70.90 bill statement (2026-09-23, AutoPay scheduled 2026-10-14, no price change); Petti Pest Control inspection report at 1030 Shannondale Rd (2026-09-23, no charge); and a 13th overdue reminder for Pool Pals invoice #1511 (2026-09-21, now 34 days overdue, balance still $498.20, escalated to 'URGENT' wording). No new vendor, no price-change flag, no duplicate subscription/charge, no paused-project charges (paused list still empty).",
+    "last_run": "2026-10-05",
+    "last_message_date_processed": "2026-10-04T18:43:07Z",
+    "last_run_note": "2026-10-05 weekly run: label:Receipts newer_than:8d returned 6 threads/messages, all new. Appended: Canva Pro $15.90 (2026-09-28); Xfinity ...4222 $55.00 AutoPay confirmed (2026-10-04); Petti Pest inspection report 1030 Shannondale (2026-10-02, no charge); PriceLabs upcoming-payment notice (2026-10-01), payment failed (2026-10-03) and 'ACTION REQUIRED' retry (2026-10-04, 39.57 incl. tax) logged as events - not yet confirmed paid, so latest PriceLabs charge stays $39.20. No new vendor, no real price change (PriceLabs pre-tax unchanged at 36.98; tax 6%->7%), no duplicates, paused list empty. Monthly total unchanged.",
     "search_query": "label:Receipts newer_than:8d",
     "search_query_note": "Weekly run uses a fixed rolling 8-day window (one day of overlap past the 7-day cadence) rather than a moving cursor, so a slightly-late email never falls in a gap. Overlap is made safe by deduping on Gmail message id against every message_id already present in this file - see RUNBOOK.md.",
     "paused_projects_file": "ledger/paused_projects.json",
     "confirmed_monthly_recurring_total": {
       "amount": 636.08,
-      "as_of": "2026-09-28",
+      "as_of": "2026-10-05",
       "basis": "Sum of the latest charge for every vendor with billing_cycle containing 'monthly' and status 'active': PriceLabs 39.20 + Canva Pro 15.90 + Breezeway 49.98 + Xfinity ...4222 55.00 + Xfinity ...6337 70.90 + Potomac Edison ...6615/1030 Shannondale 189.75 + Potomac Edison ...8822/704 Valley View 193.95 + Anthropic (Claude Pro) 21.40. Anthropic added this run - its second consecutive $21.40 charge confirms it as a real recurring monthly cost, promoting it from 'new' to 'active'. Excludes QR Code Generator Pro (cycle unconfirmed, still one charge), Apple Valley Waste (quarterly), and Pool Pals/Petti Pest Control/Booking.com (irregular cadence)."
     }
   },
@@ -22,313 +22,1139 @@
     {
       "id": "pricelabs",
       "display_name": "PriceLabs",
-      "sender_domains": ["pricelabs.co"],
+      "sender_domains": [
+        "pricelabs.co"
+      ],
       "category": "software_subscription",
       "purpose": "Dynamic pricing tool for short-term rental listings",
       "status": "active",
       "billing_cycle": "monthly, charged ~3rd of the month",
       "first_seen_in_backfill": "2025-10-06",
       "charges": [
-        {"date": "2025-10-06", "amount": 37.08, "type": "charge_success", "message_id": "199bae6612cf3a4c"},
-        {"date": "2025-11-03", "amount": 37.08, "type": "charge_success", "message_id": "19a4b3311ea44771"},
-        {"date": "2025-12-03", "amount": 37.08, "type": "charge_success", "message_id": "19ae5f69f8903de6"},
-        {"date": "2026-01-03", "amount": 37.08, "type": "charge_success", "message_id": "19b852db788a2c15"},
-        {"date": "2026-02-03", "amount": 37.08, "type": "charge_success", "message_id": "19c250c8fda3cabc"},
-        {"date": "2026-03-03", "amount": 37.08, "type": "charge_success", "message_id": "19cb4fe9b965d804"},
-        {"date": "2026-04-03", "amount": 37.08, "type": "charge_success", "message_id": "19d54b36a92f1cfb"},
-        {"date": "2026-05-03", "amount": 37.08, "type": "charge_success", "message_id": "19def8e7bad5f8b1"},
-        {"date": "2026-06-15", "amount": 39.20, "type": "charge_success", "message_id": "19ecb7a0af19b0d9", "flag": "price_change", "note": "Jumped from $37.08 to $39.20 (+5.7%). Billing date also slipped from the 3rd to the 15th this cycle."},
-        {"date": "2026-08-03", "amount": 39.20, "type": "charge_success", "message_id": "19fc8e9e23fd7330", "note": "Confirms $39.20 is the new steady price, not a one-off."},
-        {"date": "2026-09-03", "amount": 39.20, "type": "charge_success", "message_id": "1a068c1706279416", "note": "Same $39.20 as prior month - no price change."}
+        {
+          "date": "2025-10-06",
+          "amount": 37.08,
+          "type": "charge_success",
+          "message_id": "199bae6612cf3a4c"
+        },
+        {
+          "date": "2025-11-03",
+          "amount": 37.08,
+          "type": "charge_success",
+          "message_id": "19a4b3311ea44771"
+        },
+        {
+          "date": "2025-12-03",
+          "amount": 37.08,
+          "type": "charge_success",
+          "message_id": "19ae5f69f8903de6"
+        },
+        {
+          "date": "2026-01-03",
+          "amount": 37.08,
+          "type": "charge_success",
+          "message_id": "19b852db788a2c15"
+        },
+        {
+          "date": "2026-02-03",
+          "amount": 37.08,
+          "type": "charge_success",
+          "message_id": "19c250c8fda3cabc"
+        },
+        {
+          "date": "2026-03-03",
+          "amount": 37.08,
+          "type": "charge_success",
+          "message_id": "19cb4fe9b965d804"
+        },
+        {
+          "date": "2026-04-03",
+          "amount": 37.08,
+          "type": "charge_success",
+          "message_id": "19d54b36a92f1cfb"
+        },
+        {
+          "date": "2026-05-03",
+          "amount": 37.08,
+          "type": "charge_success",
+          "message_id": "19def8e7bad5f8b1"
+        },
+        {
+          "date": "2026-06-15",
+          "amount": 39.2,
+          "type": "charge_success",
+          "message_id": "19ecb7a0af19b0d9",
+          "flag": "price_change",
+          "note": "Jumped from $37.08 to $39.20 (+5.7%). Billing date also slipped from the 3rd to the 15th this cycle."
+        },
+        {
+          "date": "2026-08-03",
+          "amount": 39.2,
+          "type": "charge_success",
+          "message_id": "19fc8e9e23fd7330",
+          "note": "Confirms $39.20 is the new steady price, not a one-off."
+        },
+        {
+          "date": "2026-09-03",
+          "amount": 39.2,
+          "type": "charge_success",
+          "message_id": "1a068c1706279416",
+          "note": "Same $39.20 as prior month - no price change."
+        }
       ],
       "events": [
-        {"date": "2025-10-03", "type": "payment_failed", "message_id": "199ab5ee1b5b8266"},
-        {"date": "2025-10-04", "type": "payment_retry_pending", "message_id": "199b07e895470c75", "note": "\"Action required\" retry notice, amount 37.08"},
-        {"date": "2025-10-06", "type": "payment_retry_success", "amount": 37.08, "message_id": "199bae6612cf3a4c"}
+        {
+          "date": "2025-10-03",
+          "type": "payment_failed",
+          "message_id": "199ab5ee1b5b8266"
+        },
+        {
+          "date": "2025-10-04",
+          "type": "payment_retry_pending",
+          "message_id": "199b07e895470c75",
+          "note": "\"Action required\" retry notice, amount 37.08"
+        },
+        {
+          "date": "2025-10-06",
+          "type": "payment_retry_success",
+          "amount": 37.08,
+          "message_id": "199bae6612cf3a4c"
+        },
+        {
+          "date": "2026-10-01",
+          "type": "upcoming_payment_notice",
+          "amount": 36.98,
+          "message_id": "1a0f97bd8eb5a566",
+          "note": "Invoice 2026-INV235098-2866940, period 2 Sep-1 Oct 2026; 36.98 USD plus tax, to be charged 2026-10-03. Pre-tax matches prior (36.98 x 1.06 = 39.20)."
+        },
+        {
+          "date": "2026-10-03",
+          "type": "payment_failed",
+          "message_id": "1a103bfd4dcab631",
+          "note": "Payment for invoice 2026-INV235098-2866940 failed; retry promised."
+        },
+        {
+          "date": "2026-10-04",
+          "type": "payment_retry_pending",
+          "amount": 39.57,
+          "message_id": "1a1083a198c55591",
+          "note": "ACTION REQUIRED - retry attempted for 39.57 USD incl. tax (36.98 x 1.07); subscription at risk. Not yet confirmed paid. 39.57 vs 39.20 is a tax-rate change (6%->7%), not a plan price change."
+        }
       ]
     },
     {
       "id": "canva",
       "display_name": "Canva Pro",
-      "sender_domains": ["account.canva.com"],
+      "sender_domains": [
+        "account.canva.com"
+      ],
       "category": "software_subscription",
       "purpose": "Design tool, Canva Pro plan",
       "status": "active",
       "billing_cycle": "monthly, charged ~28th-30th of the month",
       "first_seen_in_backfill": "2025-12-30",
       "charges": [
-        {"date": "2025-12-30", "amount": 15.90, "type": "charge_success", "message_id": "19b70be11fbfa9ab", "note": "amount inferred from stable pattern"},
-        {"date": "2026-01-30", "amount": 15.90, "type": "charge_success", "message_id": "19c1067c9c0cac6f", "note": "amount inferred from stable pattern"},
-        {"date": "2026-02-28", "amount": 15.90, "type": "charge_success", "message_id": "19ca5ec9b1f8311f", "note": "amount inferred from stable pattern"},
-        {"date": "2026-03-28", "amount": 15.90, "type": "charge_success", "message_id": "19d36108eb4bbcff", "note": "amount inferred from stable pattern"},
-        {"date": "2026-04-28", "amount": 15.90, "type": "charge_success", "message_id": "19dd5a6c01ba3c4a", "note": "amount inferred from stable pattern"},
-        {"date": "2026-05-28", "amount": 15.90, "type": "charge_success", "message_id": "19e7021fd506a620", "note": "amount inferred from stable pattern"},
-        {"date": "2026-06-28", "amount": 15.90, "type": "charge_success", "message_id": "19f0fd377a082862", "note": "amount inferred from stable pattern"},
-        {"date": "2026-07-28", "amount": 15.90, "type": "charge_success", "message_id": "19faa3ad5e2f4056", "note": "amount confirmed by reading full invoice body (item: Canva Pro)"},
-        {"date": "2026-08-28", "amount": 15.90, "type": "charge_success", "message_id": "1a049f9f1778697c", "note": "Invoice 04987-68600509. Same $15.90 as prior months - no price change."}
+        {
+          "date": "2025-12-30",
+          "amount": 15.9,
+          "type": "charge_success",
+          "message_id": "19b70be11fbfa9ab",
+          "note": "amount inferred from stable pattern"
+        },
+        {
+          "date": "2026-01-30",
+          "amount": 15.9,
+          "type": "charge_success",
+          "message_id": "19c1067c9c0cac6f",
+          "note": "amount inferred from stable pattern"
+        },
+        {
+          "date": "2026-02-28",
+          "amount": 15.9,
+          "type": "charge_success",
+          "message_id": "19ca5ec9b1f8311f",
+          "note": "amount inferred from stable pattern"
+        },
+        {
+          "date": "2026-03-28",
+          "amount": 15.9,
+          "type": "charge_success",
+          "message_id": "19d36108eb4bbcff",
+          "note": "amount inferred from stable pattern"
+        },
+        {
+          "date": "2026-04-28",
+          "amount": 15.9,
+          "type": "charge_success",
+          "message_id": "19dd5a6c01ba3c4a",
+          "note": "amount inferred from stable pattern"
+        },
+        {
+          "date": "2026-05-28",
+          "amount": 15.9,
+          "type": "charge_success",
+          "message_id": "19e7021fd506a620",
+          "note": "amount inferred from stable pattern"
+        },
+        {
+          "date": "2026-06-28",
+          "amount": 15.9,
+          "type": "charge_success",
+          "message_id": "19f0fd377a082862",
+          "note": "amount inferred from stable pattern"
+        },
+        {
+          "date": "2026-07-28",
+          "amount": 15.9,
+          "type": "charge_success",
+          "message_id": "19faa3ad5e2f4056",
+          "note": "amount confirmed by reading full invoice body (item: Canva Pro)"
+        },
+        {
+          "date": "2026-08-28",
+          "amount": 15.9,
+          "type": "charge_success",
+          "message_id": "1a049f9f1778697c",
+          "note": "Invoice 04987-68600509. Same $15.90 as prior months - no price change."
+        },
+        {
+          "date": "2026-09-28",
+          "amount": 15.9,
+          "type": "charge_success",
+          "message_id": "1a0e984e44443a35",
+          "note": "Invoice 05018-71077781. Same $15.90 - no price change."
+        }
       ],
       "events": []
     },
     {
       "id": "breezeway",
       "display_name": "Breezeway",
-      "sender_domains": ["stripe.com (invoice+statements+acct_1NJLbPIup7uyHJD7@stripe.com)"],
+      "sender_domains": [
+        "stripe.com (invoice+statements+acct_1NJLbPIup7uyHJD7@stripe.com)"
+      ],
       "category": "software_subscription",
       "purpose": "Turnover / cleaning management software for short-term rentals",
       "status": "active",
       "billing_cycle": "monthly",
       "first_seen_in_backfill": "2025-10-07",
       "charges": [
-        {"date": "2025-10-07", "amount": null, "type": "charge_success", "message_id": "199bf5c6d9d0dbcd", "note": "amount not confirmed for this instance"},
-        {"date": "2025-11-10", "amount": null, "type": "charge_success", "message_id": "19a6f2e4ce7d21cb", "note": "amount not confirmed for this instance"},
-        {"date": "2025-12-04", "amount": null, "type": "charge_success", "message_id": "19aea3db10a2933b", "note": "amount not confirmed for this instance"},
-        {"date": "2026-01-07", "amount": null, "type": "charge_success", "message_id": "19b9ac7be3917d96", "note": "amount not confirmed for this instance"},
-        {"date": "2026-02-05", "amount": null, "type": "charge_success", "message_id": "19c300db1b76fa96", "note": "amount not confirmed for this instance"},
-        {"date": "2026-03-06", "amount": null, "type": "charge_success", "message_id": "19cc402b1a2603c4", "note": "amount not confirmed for this instance"},
-        {"date": "2026-04-06", "amount": null, "type": "charge_success", "message_id": "19d6437004715bbf", "note": "amount not confirmed for this instance"},
-        {"date": "2026-05-06", "amount": null, "type": "charge_success", "message_id": "19dfecf922584bb0", "note": "amount not confirmed for this instance"},
-        {"date": "2026-06-04", "amount": null, "type": "charge_success", "message_id": "19e93db12d0ff532", "note": "amount not confirmed for this instance"},
-        {"date": "2026-07-07", "amount": 49.98, "type": "charge_success", "message_id": "19f3def2d20bc464", "note": "amount confirmed by reading full receipt body (line total)"},
-        {"date": "2026-08-05", "amount": 49.98, "type": "charge_success", "message_id": "19fd3251fd5cc79e", "note": "Receipt #2513-6947, billing period Jul 1-Jul 31 2026. Same $49.98 as prior month - no price change."},
-        {"date": "2026-09-03", "amount": 49.98, "type": "charge_success", "message_id": "1a068eba8a3d8455", "note": "Receipt #2380-6659, Invoice OXLRT0016550-0022, billing period Aug 1-Aug 31 2026. Same $49.98 as prior month - no price change."}
+        {
+          "date": "2025-10-07",
+          "amount": null,
+          "type": "charge_success",
+          "message_id": "199bf5c6d9d0dbcd",
+          "note": "amount not confirmed for this instance"
+        },
+        {
+          "date": "2025-11-10",
+          "amount": null,
+          "type": "charge_success",
+          "message_id": "19a6f2e4ce7d21cb",
+          "note": "amount not confirmed for this instance"
+        },
+        {
+          "date": "2025-12-04",
+          "amount": null,
+          "type": "charge_success",
+          "message_id": "19aea3db10a2933b",
+          "note": "amount not confirmed for this instance"
+        },
+        {
+          "date": "2026-01-07",
+          "amount": null,
+          "type": "charge_success",
+          "message_id": "19b9ac7be3917d96",
+          "note": "amount not confirmed for this instance"
+        },
+        {
+          "date": "2026-02-05",
+          "amount": null,
+          "type": "charge_success",
+          "message_id": "19c300db1b76fa96",
+          "note": "amount not confirmed for this instance"
+        },
+        {
+          "date": "2026-03-06",
+          "amount": null,
+          "type": "charge_success",
+          "message_id": "19cc402b1a2603c4",
+          "note": "amount not confirmed for this instance"
+        },
+        {
+          "date": "2026-04-06",
+          "amount": null,
+          "type": "charge_success",
+          "message_id": "19d6437004715bbf",
+          "note": "amount not confirmed for this instance"
+        },
+        {
+          "date": "2026-05-06",
+          "amount": null,
+          "type": "charge_success",
+          "message_id": "19dfecf922584bb0",
+          "note": "amount not confirmed for this instance"
+        },
+        {
+          "date": "2026-06-04",
+          "amount": null,
+          "type": "charge_success",
+          "message_id": "19e93db12d0ff532",
+          "note": "amount not confirmed for this instance"
+        },
+        {
+          "date": "2026-07-07",
+          "amount": 49.98,
+          "type": "charge_success",
+          "message_id": "19f3def2d20bc464",
+          "note": "amount confirmed by reading full receipt body (line total)"
+        },
+        {
+          "date": "2026-08-05",
+          "amount": 49.98,
+          "type": "charge_success",
+          "message_id": "19fd3251fd5cc79e",
+          "note": "Receipt #2513-6947, billing period Jul 1-Jul 31 2026. Same $49.98 as prior month - no price change."
+        },
+        {
+          "date": "2026-09-03",
+          "amount": 49.98,
+          "type": "charge_success",
+          "message_id": "1a068eba8a3d8455",
+          "note": "Receipt #2380-6659, Invoice OXLRT0016550-0022, billing period Aug 1-Aug 31 2026. Same $49.98 as prior month - no price change."
+        }
       ],
       "events": [
-        {"date": "2025-12-05", "type": "refund", "message_id": "19aecb221f5761a5", "note": "\"Your refund from Breezeway #3000-9502\" - amount not confirmed"}
+        {
+          "date": "2025-12-05",
+          "type": "refund",
+          "message_id": "19aecb221f5761a5",
+          "note": "\"Your refund from Breezeway #3000-9502\" - amount not confirmed"
+        }
       ]
     },
     {
       "id": "xfinity_4222",
       "display_name": "Xfinity (account ...4222)",
-      "sender_domains": ["account.xfinity.com"],
+      "sender_domains": [
+        "account.xfinity.com"
+      ],
       "category": "utility",
       "purpose": "Internet/cable service, one property",
       "status": "active",
       "billing_cycle": "monthly, auto-pay ~4th of the month",
       "first_seen_in_backfill": "2026-02-04",
       "charges": [
-        {"date": "2026-02-04", "amount": 55.00, "type": "charge_success", "message_id": "19c28699584e258a"},
-        {"date": "2026-03-04", "amount": 55.00, "type": "charge_success", "message_id": "19cb8dcba7df7373"},
-        {"date": "2026-04-04", "amount": 55.00, "type": "charge_success", "message_id": "19d5867257265971"},
-        {"date": "2026-06-04", "amount": 55.00, "type": "charge_success", "message_id": "19e92bdb4d36dcda"},
-        {"date": "2026-07-04", "amount": 55.00, "type": "charge_success", "message_id": "19f2d1d8907752d1"},
-        {"date": "2026-08-04", "amount": 55.00, "type": "charge_success", "message_id": "19fcd0e62f518cba"},
-        {"date": "2026-08-12", "amount": 55.00, "type": "statement", "message_id": "19ff6efbd44e8b66", "note": "\"Your bill is available to view online\" - AutoPay scheduled for 2026-09-03, not yet a confirmed completed charge. Same $55.00 as last confirmed payment - no price change."},
-        {"date": "2026-09-04", "amount": 55.00, "type": "charge_success", "message_id": "1a06c4de3d2ed221", "note": "\"Thanks for your payment\" confirmation - AutoPay processed successfully for account ending 4222. Same $55.00 as prior month - no price change."},
-        {"date": "2026-09-12", "amount": 55.00, "type": "statement", "message_id": "1a097f0e62ffc4df", "note": "\"Your bill is available to view online\" - AutoPay scheduled for 2026-10-03, not yet a confirmed completed charge. Same $55.00 as last confirmed payment - no price change."}
+        {
+          "date": "2026-02-04",
+          "amount": 55.0,
+          "type": "charge_success",
+          "message_id": "19c28699584e258a"
+        },
+        {
+          "date": "2026-03-04",
+          "amount": 55.0,
+          "type": "charge_success",
+          "message_id": "19cb8dcba7df7373"
+        },
+        {
+          "date": "2026-04-04",
+          "amount": 55.0,
+          "type": "charge_success",
+          "message_id": "19d5867257265971"
+        },
+        {
+          "date": "2026-06-04",
+          "amount": 55.0,
+          "type": "charge_success",
+          "message_id": "19e92bdb4d36dcda"
+        },
+        {
+          "date": "2026-07-04",
+          "amount": 55.0,
+          "type": "charge_success",
+          "message_id": "19f2d1d8907752d1"
+        },
+        {
+          "date": "2026-08-04",
+          "amount": 55.0,
+          "type": "charge_success",
+          "message_id": "19fcd0e62f518cba"
+        },
+        {
+          "date": "2026-08-12",
+          "amount": 55.0,
+          "type": "statement",
+          "message_id": "19ff6efbd44e8b66",
+          "note": "\"Your bill is available to view online\" - AutoPay scheduled for 2026-09-03, not yet a confirmed completed charge. Same $55.00 as last confirmed payment - no price change."
+        },
+        {
+          "date": "2026-09-04",
+          "amount": 55.0,
+          "type": "charge_success",
+          "message_id": "1a06c4de3d2ed221",
+          "note": "\"Thanks for your payment\" confirmation - AutoPay processed successfully for account ending 4222. Same $55.00 as prior month - no price change."
+        },
+        {
+          "date": "2026-09-12",
+          "amount": 55.0,
+          "type": "statement",
+          "message_id": "1a097f0e62ffc4df",
+          "note": "\"Your bill is available to view online\" - AutoPay scheduled for 2026-10-03, not yet a confirmed completed charge. Same $55.00 as last confirmed payment - no price change."
+        },
+        {
+          "date": "2026-10-04",
+          "amount": 55.0,
+          "type": "charge_success",
+          "message_id": "1a106784e2eb4fdc",
+          "note": "AutoPay processed successfully (account ending 4222); settles the 2026-09-12 statement. Same $55.00 - no price change, not a duplicate."
+        }
       ],
       "events": []
     },
     {
       "id": "xfinity_6337",
-
       "display_name": "Xfinity (account ...6337)",
-      "sender_domains": ["account.xfinity.com"],
+      "sender_domains": [
+        "account.xfinity.com"
+      ],
       "category": "utility",
       "purpose": "Internet/cable service, second property",
       "status": "active",
       "billing_cycle": "monthly, auto-pay ~15th of the month",
       "first_seen_in_backfill": "2026-02-15",
       "charges": [
-        {"date": "2026-02-15", "amount": 70.90, "type": "charge_success", "message_id": "19c6128cc3135bf9"},
-        {"date": "2026-03-15", "amount": 70.90, "type": "charge_success", "message_id": "19cf12febbed5ad2"},
-        {"date": "2026-05-15", "amount": 70.90, "type": "charge_success", "message_id": "19e2b3db051d86e6"},
-        {"date": "2026-06-15", "amount": 70.90, "type": "charge_success", "message_id": "19ecbc6055944dba"},
-        {"date": "2026-07-15", "amount": 70.90, "type": "charge_success", "message_id": "19f6599908ab1be3"},
-        {"date": "2026-08-15", "amount": 70.90, "type": "charge_success", "message_id": "1a005381f514ffb5"},
-        {"date": "2026-08-22", "amount": 70.90, "type": "statement", "message_id": "1a02bad599236c3a", "note": "\"Your bill is available to view online\" - AutoPay scheduled for 2026-09-14, not yet a confirmed completed charge. Same $70.90 as last confirmed payment - no price change."},
-        {"date": "2026-09-15", "amount": 70.90, "type": "charge_success", "message_id": "1a0a4d62b7b25f3f", "note": "\"Thanks for your payment\" confirmation - AutoPay processed successfully for account ending 6337, completing the payment scheduled from the 2026-08-22 statement. Same $70.90 as prior month - no price change."},
-        {"date": "2026-09-23", "amount": 70.90, "type": "statement", "message_id": "1a0cba33081eb623", "note": "\"Your bill is available to view online\" - AutoPay scheduled for 2026-10-14, not yet a confirmed completed charge. Same $70.90 as last confirmed payment - no price change."}
+        {
+          "date": "2026-02-15",
+          "amount": 70.9,
+          "type": "charge_success",
+          "message_id": "19c6128cc3135bf9"
+        },
+        {
+          "date": "2026-03-15",
+          "amount": 70.9,
+          "type": "charge_success",
+          "message_id": "19cf12febbed5ad2"
+        },
+        {
+          "date": "2026-05-15",
+          "amount": 70.9,
+          "type": "charge_success",
+          "message_id": "19e2b3db051d86e6"
+        },
+        {
+          "date": "2026-06-15",
+          "amount": 70.9,
+          "type": "charge_success",
+          "message_id": "19ecbc6055944dba"
+        },
+        {
+          "date": "2026-07-15",
+          "amount": 70.9,
+          "type": "charge_success",
+          "message_id": "19f6599908ab1be3"
+        },
+        {
+          "date": "2026-08-15",
+          "amount": 70.9,
+          "type": "charge_success",
+          "message_id": "1a005381f514ffb5"
+        },
+        {
+          "date": "2026-08-22",
+          "amount": 70.9,
+          "type": "statement",
+          "message_id": "1a02bad599236c3a",
+          "note": "\"Your bill is available to view online\" - AutoPay scheduled for 2026-09-14, not yet a confirmed completed charge. Same $70.90 as last confirmed payment - no price change."
+        },
+        {
+          "date": "2026-09-15",
+          "amount": 70.9,
+          "type": "charge_success",
+          "message_id": "1a0a4d62b7b25f3f",
+          "note": "\"Thanks for your payment\" confirmation - AutoPay processed successfully for account ending 6337, completing the payment scheduled from the 2026-08-22 statement. Same $70.90 as prior month - no price change."
+        },
+        {
+          "date": "2026-09-23",
+          "amount": 70.9,
+          "type": "statement",
+          "message_id": "1a0cba33081eb623",
+          "note": "\"Your bill is available to view online\" - AutoPay scheduled for 2026-10-14, not yet a confirmed completed charge. Same $70.90 as last confirmed payment - no price change."
+        }
       ],
       "events": [
-        {"date": "2026-05-19", "type": "delayed_confirmation", "message_id": "19e3e74bc96e41ff", "note": "\"Due to a system issue, we weren't able to send our usual confirmation email\" - almost certainly the same May payment as the 05-15 entry, not a second charge. Watch for this pattern so it isn't miscounted as a duplicate."}
+        {
+          "date": "2026-05-19",
+          "type": "delayed_confirmation",
+          "message_id": "19e3e74bc96e41ff",
+          "note": "\"Due to a system issue, we weren't able to send our usual confirmation email\" - almost certainly the same May payment as the 05-15 entry, not a second charge. Watch for this pattern so it isn't miscounted as a duplicate."
+        }
       ]
     },
     {
       "id": "apple_valley_waste",
       "display_name": "Apple Valley Waste",
-      "sender_domains": ["goldmedal.net (responder@goldmedal.net)"],
+      "sender_domains": [
+        "goldmedal.net (responder@goldmedal.net)"
+      ],
       "category": "utility",
       "purpose": "Trash/waste removal service",
       "status": "active",
       "billing_cycle": "roughly quarterly, invoice (not auto-pay)",
       "first_seen_in_backfill": "2025-12-02",
       "charges": [
-        {"date": "2025-12-02", "amount": 228.58, "type": "invoice", "message_id": "19adcb656151b566"},
-        {"date": "2026-03-03", "amount": 241.00, "type": "invoice", "message_id": "19cb1c977dd6fe37", "flag": "price_change", "note": "+$12.42 vs prior invoice (+5.4%)"},
-        {"date": "2026-05-30", "amount": 253.90, "type": "invoice", "message_id": "19e78e908a902eeb", "flag": "price_change", "note": "+$12.90 vs prior invoice (+5.3%) - two increases in a row, worth confirming this is rate-driven and not a metering error"},
-        {"date": "2026-09-16", "amount": 251.10, "type": "invoice", "message_id": "1a0aa8b289fa41ae", "note": "Invoice #0007157561, account #310718. -$2.80 vs prior invoice (-1.1%) - a small dip after two consecutive increases, treated as normal variability rather than a price_change flag (well under the ~5% moves flagged previously)."}
+        {
+          "date": "2025-12-02",
+          "amount": 228.58,
+          "type": "invoice",
+          "message_id": "19adcb656151b566"
+        },
+        {
+          "date": "2026-03-03",
+          "amount": 241.0,
+          "type": "invoice",
+          "message_id": "19cb1c977dd6fe37",
+          "flag": "price_change",
+          "note": "+$12.42 vs prior invoice (+5.4%)"
+        },
+        {
+          "date": "2026-05-30",
+          "amount": 253.9,
+          "type": "invoice",
+          "message_id": "19e78e908a902eeb",
+          "flag": "price_change",
+          "note": "+$12.90 vs prior invoice (+5.3%) - two increases in a row, worth confirming this is rate-driven and not a metering error"
+        },
+        {
+          "date": "2026-09-16",
+          "amount": 251.1,
+          "type": "invoice",
+          "message_id": "1a0aa8b289fa41ae",
+          "note": "Invoice #0007157561, account #310718. -$2.80 vs prior invoice (-1.1%) - a small dip after two consecutive increases, treated as normal variability rather than a price_change flag (well under the ~5% moves flagged previously)."
+        }
       ],
       "events": []
     },
     {
       "id": "qr_code_generator_pro",
       "display_name": "QR Code Generator Pro",
-      "sender_domains": ["qr-code-generator.com"],
+      "sender_domains": [
+        "qr-code-generator.com"
+      ],
       "category": "software_subscription",
       "purpose": "Unknown - first appearance, not previously seen in the Receipts label",
       "status": "new",
       "billing_cycle": "unknown (only one data point so far)",
       "first_seen_in_backfill": "2026-08-05",
       "charges": [
-        {"date": "2026-08-05", "amount": 119.88, "type": "charge_success", "message_id": "19fd1f95ce1bc8e7", "flag": "new_vendor", "note": "First-ever charge from this vendor in the entire backfill window. $119.88 looks like an annual plan. Confirm this was intentional."}
+        {
+          "date": "2026-08-05",
+          "amount": 119.88,
+          "type": "charge_success",
+          "message_id": "19fd1f95ce1bc8e7",
+          "flag": "new_vendor",
+          "note": "First-ever charge from this vendor in the entire backfill window. $119.88 looks like an annual plan. Confirm this was intentional."
+        }
       ],
       "events": []
     },
     {
       "id": "pool_pals",
       "display_name": "Pool Pals, LLC",
-      "sender_domains": ["notification.intuit.com (quickbooks@notification.intuit.com)"],
+      "sender_domains": [
+        "notification.intuit.com (quickbooks@notification.intuit.com)"
+      ],
       "category": "service",
       "purpose": "Pool service/maintenance",
       "status": "active",
       "billing_cycle": "irregular, invoiced via QuickBooks, frequent overdue reminders",
       "first_seen_in_backfill": "2025-09-10",
       "charges": [
-        {"date": "2025-09-10", "amount": null, "type": "invoice", "message_id": "19934e70c0ee165c", "note": "amount is inside a PDF attachment; Gmail tools available to this automation can't read attachment contents"},
-        {"date": "2025-10-01", "amount": null, "type": "invoice", "message_id": "199a0fc8d2cc7f24"},
-        {"date": "2025-10-27", "amount": null, "type": "reminder_overdue", "message_id": "19a25a655840a548"},
-        {"date": "2025-11-07", "amount": null, "type": "invoice", "message_id": "19a6007da8fe655b"},
-        {"date": "2025-11-18", "amount": null, "type": "invoice", "message_id": "19a990d39806a048"},
-        {"date": "2025-12-02", "amount": null, "type": "invoice", "message_id": "19ae1a30a564bdf8"},
-        {"date": "2025-12-04", "amount": null, "type": "invoice", "message_id": "19aeaef6845c70b8", "note": "subject line said \"for Drain and Clean\", a specific line item rather than the usual recurring service"},
-        {"date": "2025-12-17", "amount": null, "type": "invoice", "message_id": "19b2d1e021c2bd79"},
-        {"date": "2026-01-27", "amount": null, "type": "invoice", "message_id": "19bffb357dfc934c"},
-        {"date": "2026-03-11", "amount": null, "type": "reminder_overdue", "message_id": "19cddf445022b45d"},
-        {"date": "2026-03-16", "amount": null, "type": "reminder_overdue", "message_id": "19cf6dce1ebf2488"},
-        {"date": "2026-04-24", "amount": null, "type": "invoice", "message_id": "19dc03011459cc5e"},
-        {"date": "2026-04-28", "amount": null, "type": "reminder_overdue", "message_id": "19dd5a770b085b67"},
-        {"date": "2026-04-29", "amount": null, "type": "reminder_overdue", "message_id": "19dd9ad90e885dc1"},
-        {"date": "2026-05-08", "amount": null, "type": "invoice", "message_id": "19e08a7641039653"},
-        {"date": "2026-05-22", "amount": null, "type": "invoice", "message_id": "19e507cee4627c6d"},
-        {"date": "2026-05-26", "amount": null, "type": "reminder_overdue", "message_id": "19e65d0f7d67ace7"},
-        {"date": "2026-06-09", "amount": null, "type": "invoice", "message_id": "19ea9e3a723bd12a"},
-        {"date": "2026-06-30", "amount": null, "type": "invoice", "message_id": "19f18da277a3a9df"},
-        {"date": "2026-07-01", "amount": null, "type": "reminder_overdue", "message_id": "19f1f6396f862091"},
-        {"date": "2026-07-06", "amount": null, "type": "reminder_overdue", "message_id": "19f379d1c7395e38"},
-        {"date": "2026-08-18", "amount": null, "type": "invoice", "message_id": "1a0163b92e21530f", "note": "Invoice #1511 (Invoice_1511_from_Pool_Pals_LLC.pdf). Reply thread confirms both hot tubs were serviced (drain, clean, fill) - Deb double-checked with Pool Pals since she thought only one was done."},
-        {"date": "2026-08-19", "amount": null, "type": "reminder_overdue", "message_id": "1a01a4ef05738ce9", "note": "First reminder that invoice #1511 has not been paid."},
-        {"date": "2026-08-20", "amount": null, "type": "reminder_overdue", "message_id": "1a01f68244f4c367", "note": "Second reminder that invoice #1511 has not been paid."},
-        {"date": "2026-08-26", "amount": null, "type": "reminder_overdue", "message_id": "1a03ef530ef20195", "note": "Third reminder that invoice #1511 has not been paid."},
-        {"date": "2026-08-27", "amount": null, "type": "reminder_overdue", "message_id": "1a0433ad3426dba1", "note": "Fourth reminder that invoice #1511 has not been paid."},
-        {"date": "2026-08-28", "amount": null, "type": "reminder_overdue", "message_id": "1a0487e27870a9fc", "note": "Fifth reminder that invoice #1511 has not been paid."},
-        {"date": "2026-09-01", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a05df3d2ffb9837", "note": "Sixth reminder, invoice #1511 now 14 days overdue. First reminder whose body states the actual amount: $498.20 (the original 2026-08-18 invoice row is left as amount: null per the no-rewrite-history policy; this confirms the balance)."},
-        {"date": "2026-09-02", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a0621e415e68d10", "note": "Seventh reminder, invoice #1511 now 15 days overdue, balance $498.20."},
-        {"date": "2026-09-04", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a06c6ec73a46817", "note": "Eighth reminder, invoice #1511 now 17 days overdue, balance $498.20."},
-        {"date": "2026-09-08", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a0817c7f99a1170", "note": "Ninth reminder, invoice #1511 now 21 days overdue, balance $498.20."},
-        {"date": "2026-09-09", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a08639dfef2c9d7", "note": "Tenth reminder, invoice #1511 now 22 days overdue, balance $498.20."},
-        {"date": "2026-09-14", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a0a06092bbc9605", "note": "Eleventh reminder, invoice #1511 now 27 days overdue, balance $498.20."},
-        {"date": "2026-09-16", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a0aaeb14ba514d0", "note": "Twelfth reminder, invoice #1511 now 29 days overdue, balance $498.20."},
-        {"date": "2026-09-21", "amount": 498.20, "type": "reminder_overdue", "message_id": "1a0c573dde1494b5", "note": "Thirteenth reminder (\"URGENT\"), invoice #1511 now 34 days overdue, balance still $498.20."}
+        {
+          "date": "2025-09-10",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19934e70c0ee165c",
+          "note": "amount is inside a PDF attachment; Gmail tools available to this automation can't read attachment contents"
+        },
+        {
+          "date": "2025-10-01",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "199a0fc8d2cc7f24"
+        },
+        {
+          "date": "2025-10-27",
+          "amount": null,
+          "type": "reminder_overdue",
+          "message_id": "19a25a655840a548"
+        },
+        {
+          "date": "2025-11-07",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19a6007da8fe655b"
+        },
+        {
+          "date": "2025-11-18",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19a990d39806a048"
+        },
+        {
+          "date": "2025-12-02",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19ae1a30a564bdf8"
+        },
+        {
+          "date": "2025-12-04",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19aeaef6845c70b8",
+          "note": "subject line said \"for Drain and Clean\", a specific line item rather than the usual recurring service"
+        },
+        {
+          "date": "2025-12-17",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19b2d1e021c2bd79"
+        },
+        {
+          "date": "2026-01-27",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19bffb357dfc934c"
+        },
+        {
+          "date": "2026-03-11",
+          "amount": null,
+          "type": "reminder_overdue",
+          "message_id": "19cddf445022b45d"
+        },
+        {
+          "date": "2026-03-16",
+          "amount": null,
+          "type": "reminder_overdue",
+          "message_id": "19cf6dce1ebf2488"
+        },
+        {
+          "date": "2026-04-24",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19dc03011459cc5e"
+        },
+        {
+          "date": "2026-04-28",
+          "amount": null,
+          "type": "reminder_overdue",
+          "message_id": "19dd5a770b085b67"
+        },
+        {
+          "date": "2026-04-29",
+          "amount": null,
+          "type": "reminder_overdue",
+          "message_id": "19dd9ad90e885dc1"
+        },
+        {
+          "date": "2026-05-08",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19e08a7641039653"
+        },
+        {
+          "date": "2026-05-22",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19e507cee4627c6d"
+        },
+        {
+          "date": "2026-05-26",
+          "amount": null,
+          "type": "reminder_overdue",
+          "message_id": "19e65d0f7d67ace7"
+        },
+        {
+          "date": "2026-06-09",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19ea9e3a723bd12a"
+        },
+        {
+          "date": "2026-06-30",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19f18da277a3a9df"
+        },
+        {
+          "date": "2026-07-01",
+          "amount": null,
+          "type": "reminder_overdue",
+          "message_id": "19f1f6396f862091"
+        },
+        {
+          "date": "2026-07-06",
+          "amount": null,
+          "type": "reminder_overdue",
+          "message_id": "19f379d1c7395e38"
+        },
+        {
+          "date": "2026-08-18",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "1a0163b92e21530f",
+          "note": "Invoice #1511 (Invoice_1511_from_Pool_Pals_LLC.pdf). Reply thread confirms both hot tubs were serviced (drain, clean, fill) - Deb double-checked with Pool Pals since she thought only one was done."
+        },
+        {
+          "date": "2026-08-19",
+          "amount": null,
+          "type": "reminder_overdue",
+          "message_id": "1a01a4ef05738ce9",
+          "note": "First reminder that invoice #1511 has not been paid."
+        },
+        {
+          "date": "2026-08-20",
+          "amount": null,
+          "type": "reminder_overdue",
+          "message_id": "1a01f68244f4c367",
+          "note": "Second reminder that invoice #1511 has not been paid."
+        },
+        {
+          "date": "2026-08-26",
+          "amount": null,
+          "type": "reminder_overdue",
+          "message_id": "1a03ef530ef20195",
+          "note": "Third reminder that invoice #1511 has not been paid."
+        },
+        {
+          "date": "2026-08-27",
+          "amount": null,
+          "type": "reminder_overdue",
+          "message_id": "1a0433ad3426dba1",
+          "note": "Fourth reminder that invoice #1511 has not been paid."
+        },
+        {
+          "date": "2026-08-28",
+          "amount": null,
+          "type": "reminder_overdue",
+          "message_id": "1a0487e27870a9fc",
+          "note": "Fifth reminder that invoice #1511 has not been paid."
+        },
+        {
+          "date": "2026-09-01",
+          "amount": 498.2,
+          "type": "reminder_overdue",
+          "message_id": "1a05df3d2ffb9837",
+          "note": "Sixth reminder, invoice #1511 now 14 days overdue. First reminder whose body states the actual amount: $498.20 (the original 2026-08-18 invoice row is left as amount: null per the no-rewrite-history policy; this confirms the balance)."
+        },
+        {
+          "date": "2026-09-02",
+          "amount": 498.2,
+          "type": "reminder_overdue",
+          "message_id": "1a0621e415e68d10",
+          "note": "Seventh reminder, invoice #1511 now 15 days overdue, balance $498.20."
+        },
+        {
+          "date": "2026-09-04",
+          "amount": 498.2,
+          "type": "reminder_overdue",
+          "message_id": "1a06c6ec73a46817",
+          "note": "Eighth reminder, invoice #1511 now 17 days overdue, balance $498.20."
+        },
+        {
+          "date": "2026-09-08",
+          "amount": 498.2,
+          "type": "reminder_overdue",
+          "message_id": "1a0817c7f99a1170",
+          "note": "Ninth reminder, invoice #1511 now 21 days overdue, balance $498.20."
+        },
+        {
+          "date": "2026-09-09",
+          "amount": 498.2,
+          "type": "reminder_overdue",
+          "message_id": "1a08639dfef2c9d7",
+          "note": "Tenth reminder, invoice #1511 now 22 days overdue, balance $498.20."
+        },
+        {
+          "date": "2026-09-14",
+          "amount": 498.2,
+          "type": "reminder_overdue",
+          "message_id": "1a0a06092bbc9605",
+          "note": "Eleventh reminder, invoice #1511 now 27 days overdue, balance $498.20."
+        },
+        {
+          "date": "2026-09-16",
+          "amount": 498.2,
+          "type": "reminder_overdue",
+          "message_id": "1a0aaeb14ba514d0",
+          "note": "Twelfth reminder, invoice #1511 now 29 days overdue, balance $498.20."
+        },
+        {
+          "date": "2026-09-21",
+          "amount": 498.2,
+          "type": "reminder_overdue",
+          "message_id": "1a0c573dde1494b5",
+          "note": "Thirteenth reminder (\"URGENT\"), invoice #1511 now 34 days overdue, balance still $498.20."
+        }
       ],
       "events": [
-        {"date": "recurring", "type": "operational_note", "note": "A large share of these are \"OVERDUE\"/\"URGENT\" reminders rather than fresh invoices - this looks like a slow-pay pattern worth a look regardless of pricing."},
-        {"date": "2026-08-31", "type": "operational_note", "note": "Invoice #1511 (2026-08-18) has now drawn 5 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28) with no invoice for a new service in between - the slow-pay pattern is intensifying for this specific invoice. Worth confirming whether it's actually been paid, since Pool Pals may just not be updating their reminder system."},
-        {"date": "2026-09-07", "type": "operational_note", "note": "Invoice #1511 ($498.20, opened 2026-08-18) has now drawn 8 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28, 09-01, 09-02, 09-04) spanning 3+ weeks with no new invoice in between. The amount is now confirmed ($498.20) from the reminder text itself. Given the length and consistency of the streak, this is worth confirming directly with Pool Pals rather than assuming it's still unpaid."},
-        {"date": "2026-09-14", "type": "operational_note", "note": "Invoice #1511 ($498.20, opened 2026-08-18) has now drawn 10 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28, 09-01, 09-02, 09-04, 09-08, 09-09) spanning nearly 4 weeks with no new invoice in between - still no confirmation this has been paid. Strongly recommend contacting Pool Pals directly rather than waiting for another reminder."},
-        {"date": "2026-09-21", "type": "operational_note", "note": "Invoice #1511 ($498.20, opened 2026-08-18) has now drawn 12 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28, 09-01, 09-02, 09-04, 09-08, 09-09, 09-14, 09-16) spanning over 5 weeks with no new invoice and no payment confirmation in between. This is well past the point of being a reminder-system quirk - recommend contacting Pool Pals directly this week to resolve."},
-        {"date": "2026-09-28", "type": "operational_note", "note": "Invoice #1511 ($498.20, opened 2026-08-18) has now drawn 13 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28, 09-01, 09-02, 09-04, 09-08, 09-09, 09-14, 09-16, 09-21) spanning nearly 5.5 weeks (34 days overdue per the latest reminder) with no new invoice and no payment confirmation in between. The 09-21 reminder escalated to \"URGENT\" language. Strongly recommend contacting Pool Pals directly this week to confirm whether this has actually been paid."}
+        {
+          "date": "recurring",
+          "type": "operational_note",
+          "note": "A large share of these are \"OVERDUE\"/\"URGENT\" reminders rather than fresh invoices - this looks like a slow-pay pattern worth a look regardless of pricing."
+        },
+        {
+          "date": "2026-08-31",
+          "type": "operational_note",
+          "note": "Invoice #1511 (2026-08-18) has now drawn 5 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28) with no invoice for a new service in between - the slow-pay pattern is intensifying for this specific invoice. Worth confirming whether it's actually been paid, since Pool Pals may just not be updating their reminder system."
+        },
+        {
+          "date": "2026-09-07",
+          "type": "operational_note",
+          "note": "Invoice #1511 ($498.20, opened 2026-08-18) has now drawn 8 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28, 09-01, 09-02, 09-04) spanning 3+ weeks with no new invoice in between. The amount is now confirmed ($498.20) from the reminder text itself. Given the length and consistency of the streak, this is worth confirming directly with Pool Pals rather than assuming it's still unpaid."
+        },
+        {
+          "date": "2026-09-14",
+          "type": "operational_note",
+          "note": "Invoice #1511 ($498.20, opened 2026-08-18) has now drawn 10 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28, 09-01, 09-02, 09-04, 09-08, 09-09) spanning nearly 4 weeks with no new invoice in between - still no confirmation this has been paid. Strongly recommend contacting Pool Pals directly rather than waiting for another reminder."
+        },
+        {
+          "date": "2026-09-21",
+          "type": "operational_note",
+          "note": "Invoice #1511 ($498.20, opened 2026-08-18) has now drawn 12 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28, 09-01, 09-02, 09-04, 09-08, 09-09, 09-14, 09-16) spanning over 5 weeks with no new invoice and no payment confirmation in between. This is well past the point of being a reminder-system quirk - recommend contacting Pool Pals directly this week to resolve."
+        },
+        {
+          "date": "2026-09-28",
+          "type": "operational_note",
+          "note": "Invoice #1511 ($498.20, opened 2026-08-18) has now drawn 13 overdue reminders (08-19, 08-20, 08-26, 08-27, 08-28, 09-01, 09-02, 09-04, 09-08, 09-09, 09-14, 09-16, 09-21) spanning nearly 5.5 weeks (34 days overdue per the latest reminder) with no new invoice and no payment confirmation in between. The 09-21 reminder escalated to \"URGENT\" language. Strongly recommend contacting Pool Pals directly this week to confirm whether this has actually been paid."
+        }
       ]
     },
     {
       "id": "petti_pest_control",
       "display_name": "Petti Pest Control",
-      "sender_domains": ["pettipestcontrol.com"],
+      "sender_domains": [
+        "pettipestcontrol.com"
+      ],
       "category": "service",
       "purpose": "Pest control for two properties (1030 Shannondale Rd and 704 Valley View Rd)",
       "status": "active",
       "billing_cycle": "roughly monthly per property; sends both an \"Invoice\" (billable) and an \"Inspection Report\" (informational, no charge) each visit",
       "first_seen_in_backfill": "2025-11-17",
       "charges": [
-        {"date": "2025-11-17", "amount": null, "type": "invoice", "message_id": "19a93b2b08704094", "note": "amount is inside a PDF attachment; not extracted"},
-        {"date": "2025-12-18", "amount": null, "type": "invoice", "message_id": "19b3321f936b684d"},
-        {"date": "2026-01-19", "amount": null, "type": "invoice", "message_id": "19bd8136226bb9a4"},
-        {"date": "2026-02-20", "amount": null, "type": "invoice", "message_id": "19c7cee3fd7e7b8d"},
-        {"date": "2026-03-20", "amount": null, "type": "invoice", "message_id": "19d0cee127f11f38"},
-        {"date": "2026-04-21", "amount": null, "type": "invoice", "message_id": "19db1d2b2c4bb01e"},
-        {"date": "2026-05-21", "amount": null, "type": "invoice", "message_id": "19e4c357ecf4e241"},
-        {"date": "2026-06-29", "amount": null, "type": "invoice", "message_id": "19f1517e731fc2e7"},
-        {"date": "2026-07-14", "amount": null, "type": "invoice", "message_id": "19f62455821139a3", "note": "attachment name: Invoice_331502.pdf, unread"},
-        {"date": "2026-08-03", "amount": null, "type": "inspection_report", "message_id": "19fc82c197fcc81e", "note": "\"Inspection Report For Your Service\" at 1030 Shannondale Rd - informational, no charge. No accompanying invoice email in this run's window."},
-        {"date": "2026-08-21", "amount": null, "type": "inspection_report", "message_id": "1a0252c04ccdd67e", "note": "\"Inspection Report For Your Service\" at 704 Valley View Rd - informational, no charge (attachment named \"Service Inspection Report_Invoice.pdf\" despite the word \"Invoice\" in the filename)."},
-        {"date": "2026-08-21", "amount": null, "type": "invoice", "message_id": "1a025e30be7d984a", "note": "Invoice #341342 (Invoice_341342.pdf) - amount inside PDF attachment, not extracted."},
-        {"date": "2026-08-31", "amount": null, "type": "inspection_report", "message_id": "1a057d1a64c6e81b", "note": "\"Inspection Report For Your Service\" at 1030 Shannondale Rd - informational, no charge."},
-        {"date": "2026-09-03", "amount": null, "type": "inspection_report", "message_id": "1a068e680a275982", "note": "\"Inspection Report For Your Service\" at 1030 Shannondale Rd - informational, no charge. Second inspection-report email for the same property within one week (08-31 and 09-03), no invoice in between - possibly the known duplicate-send glitch stretched over days rather than minutes, but not confirmed either way."},
-        {"date": "2026-09-14", "amount": null, "type": "inspection_report", "message_id": "1a0a058950af772b", "note": "\"Inspection Report For Your Service\" at 704 Valley View Rd - informational, no charge."},
-        {"date": "2026-09-14", "amount": null, "type": "invoice", "message_id": "1a0a1906306abf66", "note": "Invoice #352282 (Invoice_352282.pdf) - amount inside PDF attachment, not extracted."},
-        {"date": "2026-09-23", "amount": null, "type": "inspection_report", "message_id": "1a0ce8c06ed8ec50", "note": "\"Inspection Report For Your Service\" at 1030 Shannondale Rd - informational, no charge."}
+        {
+          "date": "2025-11-17",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19a93b2b08704094",
+          "note": "amount is inside a PDF attachment; not extracted"
+        },
+        {
+          "date": "2025-12-18",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19b3321f936b684d"
+        },
+        {
+          "date": "2026-01-19",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19bd8136226bb9a4"
+        },
+        {
+          "date": "2026-02-20",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19c7cee3fd7e7b8d"
+        },
+        {
+          "date": "2026-03-20",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19d0cee127f11f38"
+        },
+        {
+          "date": "2026-04-21",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19db1d2b2c4bb01e"
+        },
+        {
+          "date": "2026-05-21",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19e4c357ecf4e241"
+        },
+        {
+          "date": "2026-06-29",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19f1517e731fc2e7"
+        },
+        {
+          "date": "2026-07-14",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19f62455821139a3",
+          "note": "attachment name: Invoice_331502.pdf, unread"
+        },
+        {
+          "date": "2026-08-03",
+          "amount": null,
+          "type": "inspection_report",
+          "message_id": "19fc82c197fcc81e",
+          "note": "\"Inspection Report For Your Service\" at 1030 Shannondale Rd - informational, no charge. No accompanying invoice email in this run's window."
+        },
+        {
+          "date": "2026-08-21",
+          "amount": null,
+          "type": "inspection_report",
+          "message_id": "1a0252c04ccdd67e",
+          "note": "\"Inspection Report For Your Service\" at 704 Valley View Rd - informational, no charge (attachment named \"Service Inspection Report_Invoice.pdf\" despite the word \"Invoice\" in the filename)."
+        },
+        {
+          "date": "2026-08-21",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "1a025e30be7d984a",
+          "note": "Invoice #341342 (Invoice_341342.pdf) - amount inside PDF attachment, not extracted."
+        },
+        {
+          "date": "2026-08-31",
+          "amount": null,
+          "type": "inspection_report",
+          "message_id": "1a057d1a64c6e81b",
+          "note": "\"Inspection Report For Your Service\" at 1030 Shannondale Rd - informational, no charge."
+        },
+        {
+          "date": "2026-09-03",
+          "amount": null,
+          "type": "inspection_report",
+          "message_id": "1a068e680a275982",
+          "note": "\"Inspection Report For Your Service\" at 1030 Shannondale Rd - informational, no charge. Second inspection-report email for the same property within one week (08-31 and 09-03), no invoice in between - possibly the known duplicate-send glitch stretched over days rather than minutes, but not confirmed either way."
+        },
+        {
+          "date": "2026-09-14",
+          "amount": null,
+          "type": "inspection_report",
+          "message_id": "1a0a058950af772b",
+          "note": "\"Inspection Report For Your Service\" at 704 Valley View Rd - informational, no charge."
+        },
+        {
+          "date": "2026-09-14",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "1a0a1906306abf66",
+          "note": "Invoice #352282 (Invoice_352282.pdf) - amount inside PDF attachment, not extracted."
+        },
+        {
+          "date": "2026-09-23",
+          "amount": null,
+          "type": "inspection_report",
+          "message_id": "1a0ce8c06ed8ec50",
+          "note": "\"Inspection Report For Your Service\" at 1030 Shannondale Rd - informational, no charge."
+        },
+        {
+          "date": "2026-10-02",
+          "amount": null,
+          "type": "inspection_report",
+          "message_id": "1a0fd82dc0c0eeae",
+          "note": "Inspection report at 1030 Shannondale Rd - informational, no charge."
+        }
       ],
       "events": [
-        {"date": "recurring", "type": "duplicate_send", "note": "The \"Inspection Report\" email (no charge) is frequently sent 2-4 times within minutes/hours of itself for the same visit (e.g. 2026-02-20, 2026-06-24, 2025-09-22). This looks like a sender-side glitch, not a duplicate subscription/charge - flagged so future runs don't mistake it for double billing."}
+        {
+          "date": "recurring",
+          "type": "duplicate_send",
+          "note": "The \"Inspection Report\" email (no charge) is frequently sent 2-4 times within minutes/hours of itself for the same visit (e.g. 2026-02-20, 2026-06-24, 2025-09-22). This looks like a sender-side glitch, not a duplicate subscription/charge - flagged so future runs don't mistake it for double billing."
+        }
       ]
     },
     {
       "id": "booking_com_host",
       "display_name": "Booking.com (host commission invoices)",
-      "sender_domains": ["booking.com"],
+      "sender_domains": [
+        "booking.com"
+      ],
       "category": "platform_commission",
       "purpose": "Commission invoices for two listings Deb hosts: \"Iconic Chalet with Sauna, Hot Tub, Fire Pit, Plunge\" and \"Stone Cabin on Valley View - Firepit & Hot Tub\"",
       "status": "active",
       "billing_cycle": "per-booking, irregular",
       "first_seen_in_backfill": "2025-11-06",
       "charges": [
-        {"date": "2025-11-06", "amount": null, "type": "invoice", "message_id": "19a5705f51512bc0", "note": "Iconic Chalet - amount only viewable by logging into the Booking.com Extranet, not present in the email"},
-        {"date": "2025-11-06", "amount": null, "type": "invoice", "message_id": "19a5701cc666ab23", "note": "Stone Cabin"},
-        {"date": "2025-12-06", "amount": null, "type": "invoice", "message_id": "19e9b04b86c5769a", "note": "Iconic Chalet"},
-        {"date": "2025-12-06", "amount": null, "type": "invoice", "message_id": "19e9b00faf63a856", "note": "Stone Cabin"},
-        {"date": "2026-03-06", "amount": null, "type": "invoice", "message_id": "19cc16ea2e3fe04b", "note": "Stone Cabin"},
-        {"date": "2026-05-06", "amount": null, "type": "invoice", "message_id": "19dfbff1e1337e80", "note": "Iconic Chalet"},
-        {"date": "2026-05-06", "amount": null, "type": "invoice", "message_id": "19dfbfd19d84bd80", "note": "Stone Cabin"},
-        {"date": "2026-07-06", "amount": null, "type": "invoice", "message_id": "19f35e86dc2068b9", "note": "Iconic Chalet"},
-        {"date": "2026-07-06", "amount": null, "type": "invoice", "message_id": "19f35e6fd5eeb834", "note": "Stone Cabin"},
-        {"date": "2026-08-06", "amount": null, "type": "invoice", "message_id": "19fd595019f04f29", "note": "Stone Cabin, invoice #1661449189"},
-        {"date": "2026-09-06", "amount": null, "type": "invoice", "message_id": "1a0755cad5f99872", "note": "Stone Cabin, invoice #1663957615 - amount only viewable via the Booking.com Extranet, not present in the email."}
+        {
+          "date": "2025-11-06",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19a5705f51512bc0",
+          "note": "Iconic Chalet - amount only viewable by logging into the Booking.com Extranet, not present in the email"
+        },
+        {
+          "date": "2025-11-06",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19a5701cc666ab23",
+          "note": "Stone Cabin"
+        },
+        {
+          "date": "2025-12-06",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19e9b04b86c5769a",
+          "note": "Iconic Chalet"
+        },
+        {
+          "date": "2025-12-06",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19e9b00faf63a856",
+          "note": "Stone Cabin"
+        },
+        {
+          "date": "2026-03-06",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19cc16ea2e3fe04b",
+          "note": "Stone Cabin"
+        },
+        {
+          "date": "2026-05-06",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19dfbff1e1337e80",
+          "note": "Iconic Chalet"
+        },
+        {
+          "date": "2026-05-06",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19dfbfd19d84bd80",
+          "note": "Stone Cabin"
+        },
+        {
+          "date": "2026-07-06",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19f35e86dc2068b9",
+          "note": "Iconic Chalet"
+        },
+        {
+          "date": "2026-07-06",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19f35e6fd5eeb834",
+          "note": "Stone Cabin"
+        },
+        {
+          "date": "2026-08-06",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "19fd595019f04f29",
+          "note": "Stone Cabin, invoice #1661449189"
+        },
+        {
+          "date": "2026-09-06",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "1a0755cad5f99872",
+          "note": "Stone Cabin, invoice #1663957615 - amount only viewable via the Booking.com Extranet, not present in the email."
+        }
       ],
       "events": [
-        {"date": "recurring", "type": "scope_note", "note": "This label also catches Booking.com \"booking confirmed\" emails for stays where Deb is the GUEST (e.g. Alenor City Hotel in Naxos, Air Residence in Manila). Those are personal travel, not vendor expenses, and are intentionally excluded from this ledger's charge tracking."}
+        {
+          "date": "recurring",
+          "type": "scope_note",
+          "note": "This label also catches Booking.com \"booking confirmed\" emails for stays where Deb is the GUEST (e.g. Alenor City Hotel in Naxos, Air Residence in Manila). Those are personal travel, not vendor expenses, and are intentionally excluded from this ledger's charge tracking."
+        }
       ]
     },
     {
       "id": "potomac_edison_1030",
       "display_name": "Potomac Edison (account ...6615, 1030 Shannondale Rd)",
-      "sender_domains": ["firstenergycorp.com (ElectricOnline@firstenergycorp.com)"],
+      "sender_domains": [
+        "firstenergycorp.com (ElectricOnline@firstenergycorp.com)"
+      ],
       "category": "utility",
       "purpose": "Electric service, 1030 Shannondale Rd property",
       "status": "active",
       "billing_cycle": "monthly, enrolled in AutoPay (statement precedes debit by ~3 weeks); amount varies with usage, not a fixed rate",
       "first_seen_in_backfill": "2026-08-07",
       "charges": [
-        {"date": "2026-08-07", "amount": 158.74, "type": "statement", "message_id": "19fdd7a835eaae97", "flag": "new_vendor", "note": "First-ever appearance of Potomac Edison under this label. Statement for account 11 01 70 6615 6 2, service address 1030 Shannondale Rd, Harpers Ferry WV. AutoPay due 2026-08-31 - this is the statement/scheduled-debit notice, not yet a confirmed completed charge (no separate payment-confirmation email seen this run)."},
-        {"date": "2026-09-04", "amount": 189.75, "type": "statement", "message_id": "1a06db7bab29fd4f", "note": "Second statement for account 11 01 70 6615 6 2. AutoPay due 2026-09-28. $189.75 vs $158.74 last month (+19.5%) - this is a usage-based electric bill, not a flat rate, so the swing is treated as normal month-to-month variability rather than a price_change flag. Status promoted to 'active' now that a second month confirms the recurring monthly pattern; included in the confirmed monthly recurring total starting this run."}
+        {
+          "date": "2026-08-07",
+          "amount": 158.74,
+          "type": "statement",
+          "message_id": "19fdd7a835eaae97",
+          "flag": "new_vendor",
+          "note": "First-ever appearance of Potomac Edison under this label. Statement for account 11 01 70 6615 6 2, service address 1030 Shannondale Rd, Harpers Ferry WV. AutoPay due 2026-08-31 - this is the statement/scheduled-debit notice, not yet a confirmed completed charge (no separate payment-confirmation email seen this run)."
+        },
+        {
+          "date": "2026-09-04",
+          "amount": 189.75,
+          "type": "statement",
+          "message_id": "1a06db7bab29fd4f",
+          "note": "Second statement for account 11 01 70 6615 6 2. AutoPay due 2026-09-28. $189.75 vs $158.74 last month (+19.5%) - this is a usage-based electric bill, not a flat rate, so the swing is treated as normal month-to-month variability rather than a price_change flag. Status promoted to 'active' now that a second month confirms the recurring monthly pattern; included in the confirmed monthly recurring total starting this run."
+        }
       ],
       "events": []
     },
     {
       "id": "potomac_edison_704",
       "display_name": "Potomac Edison (account ...8822, 704 Valley View Dr)",
-      "sender_domains": ["firstenergycorp.com (ElectricOnline@firstenergycorp.com)"],
+      "sender_domains": [
+        "firstenergycorp.com (ElectricOnline@firstenergycorp.com)"
+      ],
       "category": "utility",
       "purpose": "Electric service, 704 Valley View Dr property",
       "status": "active",
       "billing_cycle": "monthly, enrolled in AutoPay (statement precedes debit by ~3 weeks); amount varies with usage, not a fixed rate",
       "first_seen_in_backfill": "2026-08-06",
       "charges": [
-        {"date": "2026-08-06", "amount": 202.36, "type": "statement", "message_id": "19fd855bc46e5df5", "flag": "new_vendor", "note": "First-ever appearance of Potomac Edison under this label. Statement for account 11 01 63 8822 4 1, service address 704 Valley View Dr, Harpers Ferry WV. AutoPay due 2026-08-27 - this is the statement/scheduled-debit notice, not yet a confirmed completed charge (no separate payment-confirmation email seen this run)."},
-        {"date": "2026-09-04", "amount": 193.95, "type": "statement", "message_id": "1a06db7bb1085993", "note": "Second statement for account 11 01 63 8822 4 1. AutoPay due 2026-09-28. $193.95 vs $202.36 last month (-4.2%) - usage-based electric bill, not a flat rate, so the swing is treated as normal month-to-month variability rather than a price_change flag. Status promoted to 'active' now that a second month confirms the recurring monthly pattern; included in the confirmed monthly recurring total starting this run."}
+        {
+          "date": "2026-08-06",
+          "amount": 202.36,
+          "type": "statement",
+          "message_id": "19fd855bc46e5df5",
+          "flag": "new_vendor",
+          "note": "First-ever appearance of Potomac Edison under this label. Statement for account 11 01 63 8822 4 1, service address 704 Valley View Dr, Harpers Ferry WV. AutoPay due 2026-08-27 - this is the statement/scheduled-debit notice, not yet a confirmed completed charge (no separate payment-confirmation email seen this run)."
+        },
+        {
+          "date": "2026-09-04",
+          "amount": 193.95,
+          "type": "statement",
+          "message_id": "1a06db7bb1085993",
+          "note": "Second statement for account 11 01 63 8822 4 1. AutoPay due 2026-09-28. $193.95 vs $202.36 last month (-4.2%) - usage-based electric bill, not a flat rate, so the swing is treated as normal month-to-month variability rather than a price_change flag. Status promoted to 'active' now that a second month confirms the recurring monthly pattern; included in the confirmed monthly recurring total starting this run."
+        }
       ],
       "events": []
     },
     {
       "id": "anthropic_claude_pro",
       "display_name": "Anthropic (Claude Pro)",
-      "sender_domains": ["mail.anthropic.com (invoice+statements@mail.anthropic.com)"],
+      "sender_domains": [
+        "mail.anthropic.com (invoice+statements@mail.anthropic.com)"
+      ],
       "category": "software_subscription",
       "purpose": "AI assistant subscription (Claude Pro)",
       "status": "active",
       "billing_cycle": "monthly, ~26th of the month (period stated as Aug 26-Sep 26, 2026)",
       "first_seen_in_backfill": "2026-08-26",
       "charges": [
-        {"date": "2026-08-26", "amount": 21.40, "type": "charge_success", "message_id": "1a03ed6ab8b0c0f4", "flag": "new_vendor", "note": "First-ever appearance of Anthropic under this label. Receipt #2927-5998-6603, Invoice WKY6GQTJ-0004. Claude Pro $20.00 + West Virginia tax (7%) $1.40 = $21.40, paid via Link. Addressed to debalexproperties@gmail.com (no dots) rather than deb.alex.properties@gmail.com - Gmail treats dots in the local part as insignificant, so this is the same mailbox, not a different account; not treated as an anomaly. Only one data point so far - confirm this subscription is intentional and expected to recur."},
-        {"date": "2026-09-26", "amount": 21.40, "type": "charge_success", "message_id": "1a0de7d6b6ac008c", "note": "Receipt #2346-9438-4882, Invoice WKY6GQTJ-0005, billing period Sep 26-Oct 26, 2026. Same $21.40 as prior month - no price change. Status promoted to 'active' now that a second month confirms the recurring monthly pattern; included in the confirmed monthly recurring total starting this run."}
+        {
+          "date": "2026-08-26",
+          "amount": 21.4,
+          "type": "charge_success",
+          "message_id": "1a03ed6ab8b0c0f4",
+          "flag": "new_vendor",
+          "note": "First-ever appearance of Anthropic under this label. Receipt #2927-5998-6603, Invoice WKY6GQTJ-0004. Claude Pro $20.00 + West Virginia tax (7%) $1.40 = $21.40, paid via Link. Addressed to debalexproperties@gmail.com (no dots) rather than deb.alex.properties@gmail.com - Gmail treats dots in the local part as insignificant, so this is the same mailbox, not a different account; not treated as an anomaly. Only one data point so far - confirm this subscription is intentional and expected to recur."
+        },
+        {
+          "date": "2026-09-26",
+          "amount": 21.4,
+          "type": "charge_success",
+          "message_id": "1a0de7d6b6ac008c",
+          "note": "Receipt #2346-9438-4882, Invoice WKY6GQTJ-0005, billing period Sep 26-Oct 26, 2026. Same $21.40 as prior month - no price change. Status promoted to 'active' now that a second month confirms the recurring monthly pattern; included in the confirmed monthly recurring total starting this run."
+        }
       ],
       "events": []
     }
