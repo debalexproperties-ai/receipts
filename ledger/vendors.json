@@ -6,16 +6,16 @@
     "label_id": "Label_9159949346240706748",
     "backfill_completed_at": "2026-08-05",
     "backfill_window": "2025-09-10 to 2026-08-05 (oldest ~150 of ~241 threads under the label; older history exists in Gmail but was not walked)",
-    "last_run": "2026-10-05",
-    "last_message_date_processed": "2026-10-04T18:43:07Z",
-    "last_run_note": "2026-10-05 weekly run: label:Receipts newer_than:8d returned 6 threads/messages, all new. Appended: Canva Pro $15.90 (2026-09-28); Xfinity ...4222 $55.00 AutoPay confirmed (2026-10-04); Petti Pest inspection report 1030 Shannondale (2026-10-02, no charge); PriceLabs upcoming-payment notice (2026-10-01), payment failed (2026-10-03) and 'ACTION REQUIRED' retry (2026-10-04, 39.57 incl. tax) logged as events - not yet confirmed paid, so latest PriceLabs charge stays $39.20. No new vendor, no real price change (PriceLabs pre-tax unchanged at 36.98; tax 6%->7%), no duplicates, paused list empty. Monthly total unchanged.",
+    "last_run": "2026-10-12",
+    "last_message_date_processed": "2026-10-11T18:32:27Z",
+    "last_run_note": "2026-10-12 weekly run: label:Receipts newer_than:8d returned 7 threads; 6 new, 1 (1a1083a198c55591, PriceLabs 10/04 retry notice) already logged and skipped. Appended: PriceLabs retry paid $39.57 (10/06); Breezeway $49.98 (10/05); Xfinity ...4222 bill $55.00 (10/11, AutoPay 11/03); Potomac Edison ...6615 $179.70 and ...8822 $152.76 statements; Booking.com invoice #1666303718 (amount null). No new vendor, no price change, no duplicates, paused list empty.",
     "search_query": "label:Receipts newer_than:8d",
     "search_query_note": "Weekly run uses a fixed rolling 8-day window (one day of overlap past the 7-day cadence) rather than a moving cursor, so a slightly-late email never falls in a gap. Overlap is made safe by deduping on Gmail message id against every message_id already present in this file - see RUNBOOK.md.",
     "paused_projects_file": "ledger/paused_projects.json",
     "confirmed_monthly_recurring_total": {
-      "amount": 636.08,
-      "as_of": "2026-10-05",
-      "basis": "Sum of the latest charge for every vendor with billing_cycle containing 'monthly' and status 'active': PriceLabs 39.20 + Canva Pro 15.90 + Breezeway 49.98 + Xfinity ...4222 55.00 + Xfinity ...6337 70.90 + Potomac Edison ...6615/1030 Shannondale 189.75 + Potomac Edison ...8822/704 Valley View 193.95 + Anthropic (Claude Pro) 21.40. Anthropic added this run - its second consecutive $21.40 charge confirms it as a real recurring monthly cost, promoting it from 'new' to 'active'. Excludes QR Code Generator Pro (cycle unconfirmed, still one charge), Apple Valley Waste (quarterly), and Pool Pals/Petti Pest Control/Booking.com (irregular cadence)."
+      "amount": 585.21,
+      "as_of": "2026-10-12",
+      "basis": "Sum of the latest charge for every vendor with billing_cycle containing 'monthly' and status 'active': PriceLabs 39.57 + Canva Pro 15.90 + Breezeway 49.98 + Xfinity ...4222 55.00 + Xfinity ...6337 70.90 + Potomac Edison ...6615/1030 Shannondale 179.70 + Potomac Edison ...8822/704 Valley View 152.76 + Anthropic (Claude Pro) 21.40. Excludes QR Code Generator Pro (cycle unconfirmed), Apple Valley Waste (quarterly), and Pool Pals/Petti Pest Control/Booking.com (irregular)."
     }
   },
   "vendors": [
@@ -100,6 +100,13 @@
           "type": "charge_success",
           "message_id": "1a068c1706279416",
           "note": "Same $39.20 as prior month - no price change."
+        },
+        {
+          "date": "2026-10-06",
+          "amount": 39.57,
+          "type": "charge_success",
+          "message_id": "1a111c4192426ee1",
+          "note": "Retry of failed Oct invoice (2026-INV235098) succeeded; $39.57 incl. tax. Pre-tax $36.98 unchanged; +$0.37 vs $39.20 is tax-rate change (6%->7%), not a price change. Resolves last week's payment-failed risk."
         }
       ],
       "events": [
@@ -140,7 +147,8 @@
           "message_id": "1a1083a198c55591",
           "note": "ACTION REQUIRED - retry attempted for 39.57 USD incl. tax (36.98 x 1.07); subscription at risk. Not yet confirmed paid. 39.57 vs 39.20 is a tax-rate change (6%->7%), not a plan price change."
         }
-      ]
+      ],
+      "notes": null
     },
     {
       "id": "canva",
@@ -322,6 +330,13 @@
           "type": "charge_success",
           "message_id": "1a068eba8a3d8455",
           "note": "Receipt #2380-6659, Invoice OXLRT0016550-0022, billing period Aug 1-Aug 31 2026. Same $49.98 as prior month - no price change."
+        },
+        {
+          "date": "2026-10-05",
+          "amount": 49.98,
+          "type": "charge_success",
+          "message_id": "1a10dc419924d802",
+          "note": "Receipt #2400-5918, invoice OXLRT0016550-0023, period Sep 1-Sep 30 2026. Qty 2 x $24.99. Same $49.98 - no price change."
         }
       ],
       "events": [
@@ -408,6 +423,13 @@
           "type": "charge_success",
           "message_id": "1a106784e2eb4fdc",
           "note": "AutoPay processed successfully (account ending 4222); settles the 2026-09-12 statement. Same $55.00 - no price change, not a duplicate."
+        },
+        {
+          "date": "2026-10-11",
+          "amount": 55.0,
+          "type": "statement",
+          "message_id": "1a12c06e8c5d57c0",
+          "note": "Bill available; AutoPay $55.00 scheduled 2026-11-03 (account 4222). Same $55.00 - no price change."
         }
       ],
       "events": []
@@ -1058,6 +1080,13 @@
           "type": "invoice",
           "message_id": "1a0755cad5f99872",
           "note": "Stone Cabin, invoice #1663957615 - amount only viewable via the Booking.com Extranet, not present in the email."
+        },
+        {
+          "date": "2026-10-06",
+          "amount": null,
+          "type": "invoice",
+          "message_id": "1a10f8e62e76d086",
+          "note": "Stone Cabin on Valley View, invoice #1666303718 - amount only in Extranet/PDF, not in email."
         }
       ],
       "events": [
@@ -1094,6 +1123,13 @@
           "type": "statement",
           "message_id": "1a06db7bab29fd4f",
           "note": "Second statement for account 11 01 70 6615 6 2. AutoPay due 2026-09-28. $189.75 vs $158.74 last month (+19.5%) - this is a usage-based electric bill, not a flat rate, so the swing is treated as normal month-to-month variability rather than a price_change flag. Status promoted to 'active' now that a second month confirms the recurring monthly pattern; included in the confirmed monthly recurring total starting this run."
+        },
+        {
+          "date": "2026-10-11",
+          "amount": 179.7,
+          "type": "statement",
+          "message_id": "1a12c3cdbad7a5a4",
+          "note": "Statement 10/10/2026, acct ...6615, AutoPay due 2026-11-02. $179.70 vs $189.75 (-5.3%) - usage-based, treated as normal variability, not a price_change flag."
         }
       ],
       "events": []
@@ -1124,6 +1160,13 @@
           "type": "statement",
           "message_id": "1a06db7bb1085993",
           "note": "Second statement for account 11 01 63 8822 4 1. AutoPay due 2026-09-28. $193.95 vs $202.36 last month (-4.2%) - usage-based electric bill, not a flat rate, so the swing is treated as normal month-to-month variability rather than a price_change flag. Status promoted to 'active' now that a second month confirms the recurring monthly pattern; included in the confirmed monthly recurring total starting this run."
+        },
+        {
+          "date": "2026-10-09",
+          "amount": 152.76,
+          "type": "statement",
+          "message_id": "1a121f4dcc324e49",
+          "note": "Statement 10/08/2026, acct ...8822, AutoPay due 2026-11-02. $152.76 vs $193.95 (-21.2%) - usage-based, treated as normal variability (large drop; likely cooler weather/lower occupancy), not a price_change flag."
         }
       ],
       "events": []
