@@ -6,15 +6,15 @@
   "label_id": "Label_9159949346240706748",
   "backfill_completed_at": "2026-08-05",
   "backfill_window": "2025-09-10 to 2026-08-05 (oldest ~150 of ~241 threads under the label; older history exists in Gmail but was not walked)",
-  "last_run": "2026-10-26",
-  "last_message_date_processed": "2026-10-23T13:12:04Z",
-  "last_run_note": "2026-10-26 weekly run: 4 threads, all new. Xfinity ...6337 statement $113.90 (was $70.90, price_change flag); 3 Petti Pest Control emails (2 inspection reports, 1 invoice, amount in PDF). No new vendor, duplicates, or paused-project charges.",
+  "last_run": "2026-11-02",
+  "last_message_date_processed": "2026-11-01T22:00:40Z",
+  "last_run_note": "2026-11-02 weekly run: 4 threads, all new. Canva $15.90, Anthropic $21.40, Petti Pest Control inspection report/invoice for 1030 Shannondale (PDF, amount n/a), PriceLabs upcoming-payment notice ($36.98 pre-tax, unchanged). No flags.",
   "search_query": "label:Receipts newer_than:8d",
   "search_query_note": "Weekly run uses a fixed rolling 8-day window (one day of overlap past the 7-day cadence) rather than a moving cursor, so a slightly-late email never falls in a gap. Overlap is made safe by deduping on Gmail message id against every message_id already present in this file - see RUNBOOK.md.",
   "paused_projects_file": "ledger/paused_projects.json",
   "confirmed_monthly_recurring_total": {
    "amount": 628.21,
-   "as_of": "2026-10-26",
+   "as_of": "2026-11-02",
    "basis": "Sum of the latest charge for every vendor with billing_cycle containing 'monthly' and status 'active': PriceLabs 39.57 + Canva Pro 15.90 + Breezeway 49.98 + Xfinity ...4222 55.00 + Xfinity ...6337 113.90 (pending statement) + Potomac Edison ...6615/1030 Shannondale 179.70 + Potomac Edison ...8822/704 Valley View 152.76 + Anthropic (Claude Pro) 21.40. Excludes QR Code Generator Pro (cycle unconfirmed), Apple Valley Waste (quarterly), and Pool Pals/Petti Pest Control/Booking.com (irregular)."
   }
  },
@@ -107,6 +107,14 @@
      "type": "charge_success",
      "message_id": "1a111c4192426ee1",
      "note": "Retry of failed Oct invoice (2026-INV235098) succeeded; $39.57 incl. tax. Pre-tax $36.98 unchanged; +$0.37 vs $39.20 is tax-rate change (6%->7%), not a price change. Resolves last week's payment-failed risk."
+    },
+    {
+     "date": "2026-11-01",
+     "amount": null,
+     "pretax_amount": 36.98,
+     "type": "upcoming_payment_notice",
+     "message_id": "1a1992107bafcddd",
+     "note": "Notice: $36.98 + tax to be charged 2026-11-03 (invoice 2026-INV235098-2951604, period Oct 2-Nov 1). Pre-tax unchanged; not yet a confirmed charge. Last confirmed charge remains $39.57 (2026-10-06)."
     }
    ],
    "events": [
@@ -231,6 +239,13 @@
      "type": "charge_success",
      "message_id": "1a0e984e44443a35",
      "note": "Invoice 05018-71077781. Same $15.90 - no price change."
+    },
+    {
+     "date": "2026-10-28",
+     "amount": 15.9,
+     "type": "charge_success",
+     "message_id": "1a1840426c84a547",
+     "note": "Invoice 05048-71665931. Same $15.90 - no price change."
     }
    ],
    "events": []
@@ -1018,6 +1033,13 @@
      "type": "invoice",
      "message_id": "1a15aefb28fa846b",
      "note": "Invoice email (billing@pettipestcontrol.com) - amount inside PDF attachment, not extracted."
+    },
+    {
+     "date": "2026-10-29",
+     "amount": null,
+     "type": "invoice",
+     "message_id": "1a188771e355f8a6",
+     "note": "Service Inspection Report_Invoice.pdf for 1030 Shannondale Rd - amount inside PDF attachment, not extracted."
     }
    ],
    "events": [
@@ -1233,6 +1255,13 @@
      "type": "charge_success",
      "message_id": "1a0de7d6b6ac008c",
      "note": "Receipt #2346-9438-4882, Invoice WKY6GQTJ-0005, billing period Sep 26-Oct 26, 2026. Same $21.40 as prior month - no price change. Status promoted to 'active' now that a second month confirms the recurring monthly pattern; included in the confirmed monthly recurring total starting this run."
+    },
+    {
+     "date": "2026-10-26",
+     "amount": 21.4,
+     "type": "charge_success",
+     "message_id": "1a178fc780db12da",
+     "note": "Receipt #2885-3983-3003, invoice WKY6GQTJ-0006, period Oct 26-Nov 26 2026. $20.00 + 7% WV tax. Same $21.40 - no price change."
     }
    ],
    "events": []
