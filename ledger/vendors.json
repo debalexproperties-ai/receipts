@@ -6,16 +6,16 @@
   "label_id": "Label_9159949346240706748",
   "backfill_completed_at": "2026-08-05",
   "backfill_window": "2025-09-10 to 2026-08-05 (oldest ~150 of ~241 threads under the label; older history exists in Gmail but was not walked)",
-  "last_run": "2026-11-02",
-  "last_message_date_processed": "2026-11-01T22:00:40Z",
-  "last_run_note": "2026-11-02 weekly run: 4 threads, all new. Canva $15.90, Anthropic $21.40, Petti Pest Control inspection report/invoice for 1030 Shannondale (PDF, amount n/a), PriceLabs upcoming-payment notice ($36.98 pre-tax, unchanged). No flags.",
+  "last_run": "2026-11-09",
+  "last_message_date_processed": "2026-11-06T06:11:20Z",
+  "last_run_note": "2026-11-09 weekly run: 9 threads, 10 messages, 9 new (PriceLabs notice already logged). No standard flags; Potomac Edison 1030 +38.6% usage watch; possible Xfinity plan/Mobile change.",
   "search_query": "label:Receipts newer_than:8d",
   "search_query_note": "Weekly run uses a fixed rolling 8-day window (one day of overlap past the 7-day cadence) rather than a moving cursor, so a slightly-late email never falls in a gap. Overlap is made safe by deduping on Gmail message id against every message_id already present in this file - see RUNBOOK.md.",
   "paused_projects_file": "ledger/paused_projects.json",
   "confirmed_monthly_recurring_total": {
-   "amount": 628.21,
-   "as_of": "2026-11-02",
-   "basis": "Sum of the latest charge for every vendor with billing_cycle containing 'monthly' and status 'active': PriceLabs 39.57 + Canva Pro 15.90 + Breezeway 49.98 + Xfinity ...4222 55.00 + Xfinity ...6337 113.90 (pending statement) + Potomac Edison ...6615/1030 Shannondale 179.70 + Potomac Edison ...8822/704 Valley View 152.76 + Anthropic (Claude Pro) 21.40. Excludes QR Code Generator Pro (cycle unconfirmed), Apple Valley Waste (quarterly), and Pool Pals/Petti Pest Control/Booking.com (irregular)."
+   "amount": 713.92,
+   "as_of": "2026-11-09",
+   "basis": "Sum of the latest charge for every vendor with billing_cycle containing 'monthly' and status 'active': pricelabs 39.2; canva 15.9; breezeway 49.98; xfinity_4222 55.0; xfinity_6337 113.9; potomac_edison_1030 249.11; potomac_edison_704 169.43; anthropic_claude_pro 21.4. Excludes QR Code Generator Pro (cycle unconfirmed), Apple Valley Waste (quarterly), Pool Pals/Petti Pest Control/Booking.com (irregular/no amounts)."
   }
  },
  "vendors": [
@@ -115,6 +115,13 @@
      "type": "upcoming_payment_notice",
      "message_id": "1a1992107bafcddd",
      "note": "Notice: $36.98 + tax to be charged 2026-11-03 (invoice 2026-INV235098-2951604, period Oct 2-Nov 1). Pre-tax unchanged; not yet a confirmed charge. Last confirmed charge remains $39.57 (2026-10-06)."
+    },
+    {
+     "date": "2026-11-03",
+     "amount": 39.2,
+     "type": "charge_success",
+     "message_id": "1a1a358b4a08b8da",
+     "note": "Charged $39.20 incl. tax (36.98 pre-tax, as announced). -0.9% vs 39.57, tax jitter; no flag."
     }
    ],
    "events": [
@@ -352,6 +359,13 @@
      "type": "charge_success",
      "message_id": "1a10dc419924d802",
      "note": "Receipt #2400-5918, invoice OXLRT0016550-0023, period Sep 1-Sep 30 2026. Qty 2 x $24.99. Same $49.98 - no price change."
+    },
+    {
+     "date": "2026-11-05",
+     "amount": 49.98,
+     "type": "charge_success",
+     "message_id": "1a1ad5051a83e7ff",
+     "note": "Receipt #2526-2111, period Oct 1-31 2026, qty 2 x $24.99. No price change."
     }
    ],
    "events": [
@@ -445,6 +459,13 @@
      "type": "statement",
      "message_id": "1a12c06e8c5d57c0",
      "note": "Bill available; AutoPay $55.00 scheduled 2026-11-03 (account 4222). Same $55.00 - no price change."
+    },
+    {
+     "date": "2026-11-04",
+     "amount": 55.0,
+     "type": "payment",
+     "message_id": "1a1a65c86ba010ef",
+     "note": "AutoPay processed, acct ...4222. No price change."
     }
    ],
    "events": []
@@ -532,6 +553,20 @@
      "message_id": "1a168e3da853816b",
      "flag": "price_change",
      "note": "\"Your bill is available to view online\" - AutoPay scheduled for 2026-11-14. Up from $70.90 (+$43.00, +60.6%); not yet a confirmed completed charge."
+    },
+    {
+     "date": "2026-11-04",
+     "amount": null,
+     "type": "order_confirmation",
+     "message_id": "1a1a7837f79ebc0a",
+     "note": "Updated service order confirmed: Internet 300 Mbps $80.00/mo + ~$0.90 est. tax; gateway/fast add-ons cancelled; includes eligible free Mobile Select line. Account number not shown in email, so attribution to ...6337 is unconfirmed. Not a charge."
+    },
+    {
+     "date": "2026-11-04",
+     "amount": null,
+     "type": "shipping_notice",
+     "message_id": "1a1a81b78fe5138f",
+     "note": "Xfinity Mobile order shipped (signature required). Possible new Xfinity Mobile service; no amount."
     }
    ],
    "events": [
@@ -1145,6 +1180,20 @@
      "type": "invoice",
      "message_id": "1a10f8e62e76d086",
      "note": "Stone Cabin on Valley View, invoice #1666303718 - amount only in Extranet/PDF, not in email."
+    },
+    {
+     "date": "2026-11-06",
+     "amount": null,
+     "type": "invoice",
+     "message_id": "1a1af7287c9246e0",
+     "note": "Stone Cabin on Valley View, invoice #1668343033 - amount only in Extranet/PDF."
+    },
+    {
+     "date": "2026-11-06",
+     "amount": null,
+     "type": "invoice",
+     "message_id": "1a1af7bae6bfa3ee",
+     "note": "Iconic Chalet with Sauna, Hot Tub, Fire Pit, Plunge, invoice #1668356650 - amount only in Extranet/PDF."
     }
    ],
    "events": [
@@ -1188,6 +1237,13 @@
      "type": "statement",
      "message_id": "1a12c3cdbad7a5a4",
      "note": "Statement 10/10/2026, acct ...6615, AutoPay due 2026-11-02. $179.70 vs $189.75 (-5.3%) - usage-based, treated as normal variability, not a price_change flag."
+    },
+    {
+     "date": "2026-11-04",
+     "amount": 249.11,
+     "type": "statement",
+     "message_id": "1a1ad2d3d6f2512d",
+     "note": "Statement 11/04/2026, acct ...6615, AutoPay due 2026-11-30. $249.11 vs $179.70 (+38.6%) - usage-based, noted as watch item, not a rate flag."
     }
    ],
    "events": []
@@ -1225,6 +1281,13 @@
      "type": "statement",
      "message_id": "1a121f4dcc324e49",
      "note": "Statement 10/08/2026, acct ...8822, AutoPay due 2026-11-02. $152.76 vs $193.95 (-21.2%) - usage-based, treated as normal variability (large drop; likely cooler weather/lower occupancy), not a price_change flag."
+    },
+    {
+     "date": "2026-11-04",
+     "amount": 169.43,
+     "type": "statement",
+     "message_id": "1a1ad2d3ce811e05",
+     "note": "Statement 11/04/2026, acct ...8822, AutoPay due 2026-11-30. $169.43 vs $152.76 (+10.9%) - usage-based."
     }
    ],
    "events": []
