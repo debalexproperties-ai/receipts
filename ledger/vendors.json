@@ -6,16 +6,16 @@
   "label_id": "Label_9159949346240706748",
   "backfill_completed_at": "2026-08-05",
   "backfill_window": "2025-09-10 to 2026-08-05 (oldest ~150 of ~241 threads under the label; older history exists in Gmail but was not walked)",
-  "last_run": "2026-11-09",
-  "last_message_date_processed": "2026-11-06T06:11:20Z",
-  "last_run_note": "2026-11-09 weekly run: 9 threads, 10 messages, 9 new (PriceLabs notice already logged). No standard flags; Potomac Edison 1030 +38.6% usage watch; possible Xfinity plan/Mobile change.",
+  "last_run": "2026-11-16",
+  "last_message_date_processed": "2026-11-15T11:31:26Z",
+  "last_run_note": "2026-11-16 weekly run: 3 threads, 4 messages, 4 new. Flag: new vendor Xfinity Mobile ($44.33 one-time, est. $59.99/mo). Xfinity 6337 $113.90 AutoPay completed (prior price change now charged). Xfinity Mobile receipt sent twice (same auth code) - not a duplicate charge.",
   "search_query": "label:Receipts newer_than:8d",
   "search_query_note": "Weekly run uses a fixed rolling 8-day window (one day of overlap past the 7-day cadence) rather than a moving cursor, so a slightly-late email never falls in a gap. Overlap is made safe by deduping on Gmail message id against every message_id already present in this file - see RUNBOOK.md.",
   "paused_projects_file": "ledger/paused_projects.json",
   "confirmed_monthly_recurring_total": {
    "amount": 713.92,
-   "as_of": "2026-11-09",
-   "basis": "Sum of the latest charge for every vendor with billing_cycle containing 'monthly' and status 'active': pricelabs 39.2; canva 15.9; breezeway 49.98; xfinity_4222 55.0; xfinity_6337 113.9; potomac_edison_1030 249.11; potomac_edison_704 169.43; anthropic_claude_pro 21.4. Excludes QR Code Generator Pro (cycle unconfirmed), Apple Valley Waste (quarterly), Pool Pals/Petti Pest Control/Booking.com (irregular/no amounts)."
+   "as_of": "2026-11-16",
+   "basis": "Sum of the latest charge for every vendor with billing_cycle containing 'monthly' and status 'active': pricelabs 39.2; canva 15.9; breezeway 49.98; xfinity_4222 55.0; xfinity_6337 113.9; potomac_edison_1030 249.11; potomac_edison_704 169.43; anthropic_claude_pro 21.4. Excludes Xfinity Mobile (status new; est. $59.99/mo, first recurring bill not yet seen), QR Code Generator Pro (cycle unconfirmed), Apple Valley Waste (quarterly), Pool Pals/Petti Pest Control/Booking.com (irregular/no amounts)."
   }
  },
  "vendors": [
@@ -567,6 +567,13 @@
      "type": "shipping_notice",
      "message_id": "1a1a81b78fe5138f",
      "note": "Xfinity Mobile order shipped (signature required). Possible new Xfinity Mobile service; no amount."
+    },
+    {
+     "date": "2026-11-15",
+     "amount": 113.9,
+     "type": "charge_success",
+     "message_id": "1a1defa0e1641be8",
+     "note": "AutoPay processed successfully, account ending 6337, $113.90. Settles the 2026-10-23 statement; confirms the $70.90 -> $113.90 increase already flagged 2026-10-23 is now actually charged. Not a new price change."
     }
    ],
    "events": [
@@ -1075,6 +1082,13 @@
      "type": "invoice",
      "message_id": "1a188771e355f8a6",
      "note": "Service Inspection Report_Invoice.pdf for 1030 Shannondale Rd - amount inside PDF attachment, not extracted."
+    },
+    {
+     "date": "2026-11-11",
+     "amount": null,
+     "type": "inspection_report",
+     "message_id": "1a1cc5a36dcbf5da",
+     "note": "Inspection report for service at 1030 Shannondale Rd - informational, no charge. Single send this time."
     }
    ],
    "events": [
@@ -1328,6 +1342,36 @@
     }
    ],
    "events": []
+  },
+  {
+   "id": "xfinity_mobile",
+   "display_name": "Xfinity Mobile",
+   "sender_domains": [
+    "account.xfinity.com"
+   ],
+   "category": "telecom_mobile",
+   "purpose": "Mobile service line(s) with device payment plan; 'Line 2' is an Apple iPad (A16) 128GB on a 36-month device plan. Billing address 704 Valley View Rd, Harpers Ferry. Bought in store (Xfinity Store #2131, Alexandria VA).",
+   "status": "new",
+   "billing_cycle": "monthly (estimated $59.99/mo per receipt, incl. $8.33/mo iPad device plan x36); first bill not yet seen",
+   "first_seen_in_backfill": "2026-11-11",
+   "charges": [
+    {
+     "date": "2026-11-11",
+     "amount": 44.33,
+     "type": "charge_success",
+     "message_id": "1a1cb6116e4ff5c6",
+     "flag": "new_vendor",
+     "note": "Order #3726482302011506371, auth code CgwS3wooTZ5ew666rcmkX. Charged to VISA on file today: $44.33 = $8.33 first iPad installment + $36.00 state/local sales tax ($20.00 tablet fee deferred to next bill). Estimated ongoing monthly bill $59.99/mo. Likely follows from the 2026-11-04 Xfinity order confirmation / Mobile shipment (logged under xfinity_6337). One-time charge; not added to confirmed monthly total until a recurring bill is seen."
+    }
+   ],
+   "events": [
+    {
+     "date": "2026-11-11",
+     "type": "duplicate_send",
+     "message_id": "1a1cb617a5bb9bc0",
+     "note": "Identical 'Receipt of your recent purchase' email 28 seconds after 1a1cb6116e4ff5c6, same order # and same authorization code - one $44.33 charge delivered twice, NOT a duplicate charge."
+    }
+   ]
   }
  ]
 }
